@@ -1,0 +1,14 @@
+{
+  "jupyter.notebookFileRoot": "${workspaceFolder}/notebooks",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/demo",
+    "${workspaceFolder}/examples"
+  ],
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.ipynb_checkpoints": true,
+    "**/*.pyc": true
+  }
+}

@@ -1,0 +1,31 @@
+name: Release
+
+# Trigger: push a tag like v1.0.0 (or v1.0.1, etc.).
+# The wheel(s) committed under dist/ are uploaded to PyPI via OIDC —
+# no API tokens or repository secrets are used.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish committed wheel to PyPI
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/alibrex
+    permissions:
+      id-token: write   # required for OIDC trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show what we'll publish
+        run: ls -la dist/
+      - name: Publish via PyPI Trusted Publisher
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
