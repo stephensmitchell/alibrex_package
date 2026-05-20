@@ -22,7 +22,7 @@
 
 | Folder | Description |
 |---|---|
-| `notebooks/` | Jupyter tutorial sequence (00–11) plus topic references (connecting, cleanup, 2D/3D sketches, parameters, configurations, property reading, PDM) |
+| `notebooks/` | Jupyter tutorial sequence (00-11) plus topic references (connecting, cleanup, 2D/3D sketches, parameters, configurations, property reading, PDM) |
 | `demo/` | Self-verifying scripts - feature CRUD, sketch / assembly constraints, parameters, configurations, events, profile library |
 | `demo/muffler/` | Bundled multi-part industrial assembly used by the `asm_*` and `crud_13..18*` demos |
 | `demo/profiles/` | Profile library (steel, wood, threads, pipe) consumed by the `prof_*` demos |
@@ -41,7 +41,7 @@
 
 - Windows + a licensed installation of Alibre Design (V29 or newer)
 - Old versions of Alibre Design may work, but are not tested
-- Python 3.9–3.13
+- Python 3.9-3.13
 - `pythonnet>=3.0,<4` (installed automatically)
 
 `AlibreX.dll` is not redistributed at import time `alibrex` locates it by checking, in order, the `$ALIBREX_DLL` env var, the Windows registry (`AlibreX.AutomationHook` COM ProgID, then `HKLM\SOFTWARE\Alibre, Inc.\Alibre Design\…\HomeDirectory`), and finally a `%ProgramFiles%\Alibre Design*\Program\AlibreX.dll` 

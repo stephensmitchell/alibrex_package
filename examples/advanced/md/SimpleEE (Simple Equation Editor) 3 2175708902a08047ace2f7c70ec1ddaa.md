@@ -13,7 +13,7 @@ AI summary: Dynamic Equation Editor in Python for Alibre Script allows real-time
 
 ```python
 #===========================================================
-#  Dynamic Equation Editor – refresh-enabled version
+#  Dynamic Equation Editor - refresh-enabled version
 #===========================================================
 
 import sys

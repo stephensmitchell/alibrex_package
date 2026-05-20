@@ -11,7 +11,7 @@ Comprehensive walk-through covering:
   8. Recycle bin
   9. Open Alibre sessions
 
-This script consolidates the 00–10 demos into a single end-to-end
+This script consolidates the 00-10 demos into a single end-to-end
 report. Run it as your "is everything healthy?" verification.
 """
 from alibrex import connect
