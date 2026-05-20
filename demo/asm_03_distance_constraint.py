@@ -1,4 +1,4 @@
-"""Assembly demo 03 — distance-MATE (parameterized) between two parts.
+"""Assembly demo 03 - distance-MATE (parameterized) between two parts.
 
 Same as ``asm_01`` but passes a non-None ``parameterValue`` (a distance
 in cm) so the two mating planes end up *that distance apart* rather

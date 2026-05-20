@@ -1,4 +1,4 @@
-"""CRUD demo 14 — bill of materials from the muffler assembly.
+"""CRUD demo 14 - bill of materials from the muffler assembly.
 
 Walks the muffler tree and tallies leaf parts by base name (stripping
 the ``<N>`` instance suffix Alibre appends). Output is sorted by count.

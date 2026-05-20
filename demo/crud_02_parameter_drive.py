@@ -1,4 +1,4 @@
-"""CRUD demo 02 — parameter create/update/read-back on the active part.
+"""CRUD demo 02 - parameter create/update/read-back on the active part.
 
 Uses the active part if one is open; otherwise opens a fresh part and
 extrudes a small block so there's a Depth parameter to drive.

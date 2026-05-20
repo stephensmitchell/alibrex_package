@@ -1,4 +1,4 @@
-"""Configuration demo 02 — feature suppressed in one config, alive in another.
+"""Configuration demo 02 - feature suppressed in one config, alive in another.
 
 Builds a part with two features (a base block and a small extruded
 "bump" boss). Adds two configurations; in the second one, suppresses

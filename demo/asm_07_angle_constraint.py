@@ -1,9 +1,9 @@
-"""Assembly demo 07 — angle constraint between two part planes.
+"""Assembly demo 07 - angle constraint between two part planes.
 
 Adds an ``AD_ANGLE_TYPE`` constraint with a parameterised angle so the
 two part planes end up at the requested angle to each other. Like the
 revolve angle (S9 in KNOWN_ISSUES.md), the parameter is interpreted in
-**radians** — pass ``math.radians(degrees)``.
+**radians** - pass ``math.radians(degrees)``.
 
 Pass criteria:
   - Constraint count goes 0 -> 1.

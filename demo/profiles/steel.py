@@ -10,13 +10,13 @@ All dimensions in centimetres. Use the ``mm()`` helper in
 ``profiles.__init__`` to feed mm-spec dimensions.
 
 Sections supplied:
-  - i_beam(...)       — wide-flange I / W shape.
-  - channel(...)      — C-section.
-  - angle(...)        — equal- or unequal-leg L-section.
-  - rhs(...)          — rectangular hollow section.
-  - shs(...)          — square hollow section (specialisation of rhs).
-  - chs(...)          — circular hollow section (round pipe).
-  - tee(...)          — T-section.
+  - i_beam(...)       - wide-flange I / W shape.
+  - channel(...)      - C-section.
+  - angle(...)        - equal- or unequal-leg L-section.
+  - rhs(...)          - rectangular hollow section.
+  - shs(...)          - square hollow section (specialisation of rhs).
+  - chs(...)          - circular hollow section (round pipe).
+  - tee(...)          - T-section.
 """
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""CRUD demo 13 — open the bundled muffler assembly and walk its tree.
+"""CRUD demo 13 - open the bundled muffler assembly and walk its tree.
 
 Opens the muffler assembly (read-only), prints the occurrence tree
 indented by depth, and verifies the structure we know is in the file:

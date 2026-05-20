@@ -1,4 +1,4 @@
-"""Events demo 04 — automated round-trip test for subscribe / unsubscribe.
+"""Events demo 04 - automated round-trip test for subscribe / unsubscribe.
 
 Doesn't need any user interaction. Verifies:
   - Subscribing through `em.OnX += handler` returns without error.

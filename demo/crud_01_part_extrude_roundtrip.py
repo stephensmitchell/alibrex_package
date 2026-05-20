@@ -1,4 +1,4 @@
-"""CRUD demo 01 — extrude a box on the active part, export STEP, verify.
+"""CRUD demo 01 - extrude a box on the active part, export STEP, verify.
 
 Uses the active part if one is open; otherwise opens a fresh empty part.
 
@@ -52,7 +52,7 @@ def main() -> int:
     bc_after = part.Bodies.Count
 
     # NOTE: ExportAP242 (STEP) AccessViolation-crashes Alibre 29 BETA-2 on
-    # simple solids — a native crash the CLR cannot catch, which would
+    # simple solids - a native crash the CLR cannot catch, which would
     # terminate this whole demo before the verification step. So we only
     # exercise STL and IGES here. Restore AP242 once Alibre fixes it.
     base = os.path.join(HERE, f"crud_01_{part.Name}")

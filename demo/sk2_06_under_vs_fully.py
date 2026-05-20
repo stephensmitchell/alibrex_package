@@ -1,4 +1,4 @@
-"""Sketch-2D demo 06 — under-constrained vs fully-defined: side-by-side.
+"""Sketch-2D demo 06 - under-constrained vs fully-defined: side-by-side.
 
 Builds two sketches in the same part:
 
@@ -6,7 +6,7 @@ Builds two sketches in the same part:
     additional constraints** beyond the auto-coincident endpoints
     Alibre adds during draw.
   - sketch B: the same 4 lines, but with H/V + corner pin + width/
-    height dimensions added — **fully defined**.
+    height dimensions added - **fully defined**.
 
 For each sketch, opens a parameter transaction that doesn't move any
 parameter (a no-op regenerate) and then prints constraint + dimension

@@ -1,4 +1,4 @@
-"""CRUD demo 06 — revolve a profile to make a cylinder, verify topology.
+"""CRUD demo 06 - revolve a profile to make a cylinder, verify topology.
 
 A solid cylinder has exactly 3 faces (top cap, bottom cap, lateral curved
 surface) and 2 circular edges (top + bottom rims).
@@ -10,7 +10,7 @@ Verifies:
 
 Note: AlibreX 29's ``AddRevolvedBoss`` takes the revolve angle in
 **radians**, not degrees. Passing ``360.0`` produces a "near-full" tube
-(5 faces / 9 edges) — use ``math.radians(360)`` instead.
+(5 faces / 9 edges) - use ``math.radians(360)`` instead.
 """
 from __future__ import annotations
 
@@ -49,8 +49,8 @@ def main() -> int:
 
     print(f"Features : {fc}     (expect 1)")
     print(f"Bodies   : {bodies} (expect 1)")
-    print(f"Faces    : {faces}  (expect 3 — top, bottom, side)")
-    print(f"Edges    : {edges}  (expect 2 — top + bottom circles)")
+    print(f"Faces    : {faces}  (expect 3 - top, bottom, side)")
+    print(f"Edges    : {edges}  (expect 2 - top + bottom circles)")
     print(f"STL bytes: {size:,}")
 
     return report([

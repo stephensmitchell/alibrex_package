@@ -1,7 +1,7 @@
 """Tiny shared helpers for the CRUD demos.
 
-Pattern: every demo either uses the *currently active* document, or — if
-the right kind isn't open — opens (creates) one. This way the demos are
+Pattern: every demo either uses the *currently active* document, or - if
+the right kind isn't open - opens (creates) one. This way the demos are
 self-contained but still demonstrate the ``CurrentPart`` / ``CurrentAssembly``
 workflow.
 """
@@ -29,7 +29,7 @@ def part_or_open(default_name: str):
     except RuntimeError:
         root = connect()
         part = root.CreateEmptyPart(default_name, False)
-        print(f"[info] No active part — created {part.Name!r}.")
+        print(f"[info] No active part - created {part.Name!r}.")
         return part
 
 
@@ -47,7 +47,7 @@ def assembly_or_open(default_name: str):
     except RuntimeError:
         root = connect()
         asm = root.CreateEmptyAssembly(default_name)
-        print(f"[info] No active assembly — created {asm.Name!r}.")
+        print(f"[info] No active assembly - created {asm.Name!r}.")
         return asm
 
 
@@ -64,7 +64,7 @@ def report(checks):
 
 
 # ---------------------------------------------------------------------------
-# Sketch / feature primitives — wrap the AlibreX 29 BETA-2 quirk that figure
+# Sketch / feature primitives - wrap the AlibreX 29 BETA-2 quirk that figure
 # additions must happen between sketch.BeginChange() and sketch.EndChange().
 # ---------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ def save_part_as(part, folder: str, name: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Bundled muffler assembly — a real, multi-level industrial part used by the
+# Bundled muffler assembly - a real, multi-level industrial part used by the
 # crud_13.. demos. Stays read-only so the demos can run repeatedly without
 # corrupting the file.
 # ---------------------------------------------------------------------------
@@ -169,7 +169,7 @@ def find_occurrence_by_name(root_occ, name: str):
 def stl_size(part, base_path: str) -> int:
     """Export STL and return its size in bytes (0 on failure).
 
-    A non-zero STL means the BREP tessellated cleanly — a strong validity
+    A non-zero STL means the BREP tessellated cleanly - a strong validity
     check on top of feature-count assertions.
     """
     path = base_path + ".stl"

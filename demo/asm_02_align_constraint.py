@@ -1,4 +1,4 @@
-"""Assembly demo 02 — ALIGN two muffler parts, verify movement.
+"""Assembly demo 02 - ALIGN two muffler parts, verify movement.
 
 Same scaffolding as ``asm_01`` but with an ALIGN constraint instead of
 MATE. Mate makes the two planes coincide with opposite normals; Align

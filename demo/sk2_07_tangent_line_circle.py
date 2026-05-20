@@ -1,8 +1,8 @@
-"""Sketch-2D demo 07 — make a line tangent to a circle.
+"""Sketch-2D demo 07 - make a line tangent to a circle.
 
 Draws a circle and a line that *almost* touches it, then adds a
 ``TANGENT`` constraint between them. The line snaps to be tangent to
-the circle — distance from circle center to line equals the radius.
+the circle - distance from circle center to line equals the radius.
 
 Pass criteria:
   - Tangent constraint added.

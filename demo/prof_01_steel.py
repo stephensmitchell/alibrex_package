@@ -1,4 +1,4 @@
-"""Profile demo 01 — sketch + extrude six steel structural sections.
+"""Profile demo 01 - sketch + extrude six steel structural sections.
 
 Builds a single part with six separate sketches, each carrying one
 structural-steel cross-section, and extrudes each to a short bar so

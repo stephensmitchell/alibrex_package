@@ -1,4 +1,4 @@
-"""CRUD demo 04 — extrude a box, query topology, verify Euler counts.
+"""CRUD demo 04 - extrude a box, query topology, verify Euler counts.
 
 For a solid rectangular box the topology is known exactly:
   - 1 body
@@ -37,10 +37,10 @@ def main() -> int:
             print(f"[info] Using active part {part.Name!r} (it's empty).")
         else:
             part = _fresh_part(f"CRUD04_Box_{uuid.uuid4().hex[:6]}")
-            print(f"[info] Active part is not empty — created {part.Name!r}.")
+            print(f"[info] Active part is not empty - created {part.Name!r}.")
     except RuntimeError:
         part = _fresh_part(f"CRUD04_Box_{uuid.uuid4().hex[:6]}")
-        print(f"[info] No active part — created {part.Name!r}.")
+        print(f"[info] No active part - created {part.Name!r}.")
 
     xy = part.DesignPlanes.Item(0)
     sk = part.Sketches.AddSketch(None, xy, "CRUD04_Base")

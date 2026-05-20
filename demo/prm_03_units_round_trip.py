@@ -1,8 +1,8 @@
-"""Parameter demo 03 — set and read parameter units (mm / cm / inches).
+"""Parameter demo 03 - set and read parameter units (mm / cm / inches).
 
 Creates a distance parameter and round-trips through three unit
 systems. ``IADParameter.Value`` always reads in the parameter's own
-declared ``Units`` — this demo verifies that contract holds.
+declared ``Units`` - this demo verifies that contract holds.
 
 Pass criteria:
   - Default ``ADParameterType.AD_DISTANCE`` reports cm initially.

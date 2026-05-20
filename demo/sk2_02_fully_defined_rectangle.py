@@ -1,4 +1,4 @@
-"""Sketch-2D demo 02 — fully constrain a rectangle.
+"""Sketch-2D demo 02 - fully constrain a rectangle.
 
 Builds a rectangle from 4 line segments, then locks it down so every
 vertex is fixed:

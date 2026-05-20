@@ -8,10 +8,10 @@ visual cross-sections for documentation. ``P`` is the thread pitch
 All in centimetres; origin is at the root of the tooth, peak along +Y.
 
 Profiles:
-  - un_metric(...)     — symmetric 60° (UN / ISO metric).
-  - acme(...)          — 29° trapezoidal (ACME power-screw).
-  - square_thread(...) — square / rectangular thread tooth.
-  - buttress(...)      — asymmetric buttress thread (7° / 45°).
+  - un_metric(...)     - symmetric 60° (UN / ISO metric).
+  - acme(...)          - 29° trapezoidal (ACME power-screw).
+  - square_thread(...) - square / rectangular thread tooth.
+  - buttress(...)      - asymmetric buttress thread (7° / 45°).
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ def un_metric(sketch, *, P: float, cx: float = 0.0, cy: float = 0.0) -> None:
     """Symmetric 60° thread (UN / ISO metric). Sharp-V form.
 
     Tooth height = ``P * sqrt(3) / 2``. Truncation is left to the user
-    if needed — this is the unrounded form.
+    if needed - this is the unrounded form.
     """
     height = P * math.sqrt(3) / 2.0
     pts = [
@@ -42,7 +42,7 @@ def acme(sketch, *, P: float, depth_ratio: float = 0.5,
          cx: float = 0.0, cy: float = 0.0) -> None:
     """ACME trapezoidal thread (29° included angle).
 
-    ``depth_ratio`` is tooth height divided by pitch (default 0.5 —
+    ``depth_ratio`` is tooth height divided by pitch (default 0.5 -
     standard general-purpose ACME). Top flat width = ``P * 0.3707`` per
     the ACME standard.
     """
@@ -60,7 +60,7 @@ def acme(sketch, *, P: float, depth_ratio: float = 0.5,
 
 def square_thread(sketch, *, P: float, depth_ratio: float = 0.5,
                   cx: float = 0.0, cy: float = 0.0) -> None:
-    """Square (rectangular) thread tooth — 50/50 land/groove width by
+    """Square (rectangular) thread tooth - 50/50 land/groove width by
     default. Flank angle is 0°."""
     height = P * depth_ratio
     width = P / 2.0
@@ -69,7 +69,7 @@ def square_thread(sketch, *, P: float, depth_ratio: float = 0.5,
         (cx + P,              cy),
         (cx + P,              cy + height),
         (cx + P - width / 2,  cy + height),
-        (cx + P - width / 2,  cy),  # not used — fix below
+        (cx + P - width / 2,  cy),  # not used - fix below
     ]
     # Proper square-tooth perimeter: base[0..P], up at (P-quarter, 0..h),
     # across the top, down at (quarter, h..0), back to start.
@@ -96,7 +96,7 @@ def buttress(sketch, *, P: float, depth_ratio: float = 0.5,
     back_offset  = height * math.tan(math.radians(back_angle_deg))
     flat = P - front_offset - back_offset
     if flat < 0:
-        # Pitch too tight for these angles at this depth — collapse to a peak.
+        # Pitch too tight for these angles at this depth - collapse to a peak.
         flat = 0.0
     pts = [
         (cx,                                 cy),

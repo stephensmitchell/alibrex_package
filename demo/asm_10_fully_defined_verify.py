@@ -1,10 +1,10 @@
-"""Assembly demo 10 — empirically verify a part is FULLY DEFINED.
+"""Assembly demo 10 - empirically verify a part is FULLY DEFINED.
 
 AlibreX doesn't expose ``IsFullyDefined`` / ``DegreesOfFreedom``
 properties on ``IADOccurrence``, so the only honest way to prove a part
 is fully constrained is to **try to move it and watch the solver pull
 it back**. A fully constrained part has zero remaining degrees of
-freedom — any ``ApplyTransform`` drift gets rejected by the solver and
+freedom - any ``ApplyTransform`` drift gets rejected by the solver and
 the WorldTransform stays put.
 
 Pipeline:
@@ -20,7 +20,7 @@ Pipeline:
 Pass criteria:
   - Pre-constraint drift: B's translation changed (under-constrained).
   - Post-constraint drift: B's translation matches the constrained
-    position (within 1e-3 cm) — the solver pulled it back.
+    position (within 1e-3 cm) - the solver pulled it back.
   - All three constraints report ``HasError == False``.
 """
 from __future__ import annotations

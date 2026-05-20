@@ -1,4 +1,4 @@
-"""CRUD demo 03 — add component occurrences to the active assembly, verify.
+"""CRUD demo 03 - add component occurrences to the active assembly, verify.
 
 Uses the active assembly if one is open; otherwise opens a fresh empty
 assembly. Adds three empty-part occurrences at three different
@@ -39,7 +39,7 @@ def main() -> int:
         root_occ.Occurrences.Item(i).Name
         for i in range(after)
     ]
-    # Alibre may append a "<n>" suffix to occurrence names — match by prefix.
+    # Alibre may append a "<n>" suffix to occurrence names - match by prefix.
     found = {
         name for name, *_ in layout
         if any(cn == name or cn.startswith(name) for cn in child_names)

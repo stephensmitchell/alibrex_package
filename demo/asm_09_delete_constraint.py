@@ -1,7 +1,7 @@
-"""Assembly demo 09 — delete a constraint and verify the count drops.
+"""Assembly demo 09 - delete a constraint and verify the count drops.
 
 Adds two constraints, deletes one via ``IADAssemblyConstraint.Delete()``,
-and confirms the collection count goes from 2 → 1. Verifies the
+and confirms the collection count goes from 2 - 1. Verifies the
 remaining constraint's identity is the *other* one (i.e. delete picked
 the right object).
 """

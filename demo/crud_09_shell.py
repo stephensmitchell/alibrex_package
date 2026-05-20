@@ -1,6 +1,6 @@
-"""CRUD demo 09 — shell a solid box from its top face.
+"""CRUD demo 09 - shell a solid box from its top face.
 
-KNOWN ISSUE (AlibreX 29 BETA-2, upstream — NOT a Python-side bug):
+KNOWN ISSUE (AlibreX 29 BETA-2, upstream - NOT a Python-side bug):
     Alibre raises `COMException: Can't execute query. Object no longer
     exists in server` when AddShellFeature tries to dereference an IADFace
     passed through an IObjectCollector, even though the collector reports
@@ -8,7 +8,7 @@ KNOWN ISSUE (AlibreX 29 BETA-2, upstream — NOT a Python-side bug):
 
     Reproduced from a stock VB.NET LINQPad query
     (T:\\0-code\\linqpad\\queries\\root\\9_ALIBRE\\shell-test.linq) that
-    uses the CLR's native COM marshalling — no Python proxy in the loop,
+    uses the CLR's native COM marshalling - no Python proxy in the loop,
     no MethodInfo.Invoke, no hand-rolled IDispatch handling. The face is
     fetched fresh by index from part.Bodies.Item(0).Faces.Item(n) right
     before Add, and Alibre still loses the handle by the time
@@ -50,7 +50,7 @@ def main() -> int:
     faces_before = part.Bodies.Item(0).Faces.Count
 
     # Identify the top face by max average Z. Face proxies don't outlive
-    # the iteration in AlibreX 29 — track the *index* and re-fetch.
+    # the iteration in AlibreX 29 - track the *index* and re-fetch.
     faces = part.Bodies.Item(0).Faces
     best_idx, best_z = -1, -1e9
     for i in range(faces.Count):
@@ -69,7 +69,7 @@ def main() -> int:
     faces_col = root.NewObjectCollector()
     faces_col.Add(part.Bodies.Item(0).Faces.Item(best_idx))
 
-    # Known marshalling issue — see module docstring. We *call* the API
+    # Known marshalling issue - see module docstring. We *call* the API
     # (proving it routes correctly) but expect it to raise the documented
     # "Object no longer exists in server" until the proxy is fixed.
     shell_error = None
@@ -89,7 +89,7 @@ def main() -> int:
     print(f"Features         : {fc}        (expect 1 boss only; shell blocked)")
     print(f"Bodies           : {bodies}    (expect 1)")
     print(f"Faces before     : {faces_before}")
-    print(f"AddShellFeature  : {'ran' if shell_called_ok else f'blocked ({shell_error}) — known issue'}")
+    print(f"AddShellFeature  : {'ran' if shell_called_ok else f'blocked ({shell_error}) - known issue'}")
     print(f"STL bytes        : {size:,}")
 
     return report([

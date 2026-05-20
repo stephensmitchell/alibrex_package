@@ -1,4 +1,4 @@
-"""Profile demo 04 — pipe annulus extrusion + revolved reducer + flange.
+"""Profile demo 04 - pipe annulus extrusion + revolved reducer + flange.
 
 Three sub-builds in the same part:
 
@@ -14,7 +14,7 @@ side in 3D.
 
 Pass criteria:
   - 3 features total.
-  - Each revolve uses ``math.radians(360)`` (S9 — Alibre takes radians).
+  - Each revolve uses ``math.radians(360)`` (S9 - Alibre takes radians).
   - STL exports >= 10 KB.
 """
 from __future__ import annotations
@@ -50,7 +50,7 @@ def main() -> int:
     xy = part.DesignPlanes.Item(0)
     x_axis = part.DesignAxes.Item(0)
 
-    # 1. Pipe — annulus on XY, extruded along Z.
+    # 1. Pipe - annulus on XY, extruded along Z.
     pipe_sk = _sketch_on(part, xy, "PipeProfile", pipe_profiles.pipe_annulus,
                          od=mm(50), wall=mm(4), cx=mm(0))
     part.Features.AddExtrudedBoss(
@@ -61,7 +61,7 @@ def main() -> int:
         "Pipe", "PipeLen", "",
     )
 
-    # 2. Reducer — half-profile on XY (positive Y), revolved about X.
+    # 2. Reducer - half-profile on XY (positive Y), revolved about X.
     reducer_sk = _sketch_on(part, xy, "ReducerProfile", pipe_profiles.reducer_half,
                             od_in=mm(60), od_out=mm(40),
                             length=mm(80), wall_in=mm(4),
@@ -70,7 +70,7 @@ def main() -> int:
         reducer_sk, None, x_axis, math.radians(360.0), "Reducer",
     )
 
-    # 3. Flange — half-profile on XY, revolved about X.
+    # 3. Flange - half-profile on XY, revolved about X.
     flange_sk = _sketch_on(part, xy, "FlangeProfile", pipe_profiles.flange_face,
                            od=mm(120), id_bore=mm(50), hub_od=mm(80),
                            face_thk=mm(15), hub_len=mm(30),

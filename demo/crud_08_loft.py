@@ -1,4 +1,4 @@
-"""CRUD demo 08 — loft between two square sections, verify.
+"""CRUD demo 08 - loft between two square sections, verify.
 
 A frustum lofted from a 4cm square to a 1.5cm square has:
   - 6 faces (1 bottom, 1 top, 4 trapezoidal sides).

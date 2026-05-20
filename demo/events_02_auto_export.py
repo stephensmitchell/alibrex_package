@@ -1,4 +1,4 @@
-"""Events demo 02 — auto-export every part on OnSessionChange.
+"""Events demo 02 - auto-export every part on OnSessionChange.
 
 A small but realistic pattern: whenever the user changes the active part
 in Alibre's UI, export the geometry to STL on disk. The exported file is
@@ -30,7 +30,7 @@ def main() -> int:
     root = connect()
     em = root.EventManager
     print(f"Auto-export listener started. Output: {OUT_DIR}")
-    print(f"Listening {LISTEN_SECONDS}s — edit parts in Alibre to trigger exports.")
+    print(f"Listening {LISTEN_SECONDS}s - edit parts in Alibre to trigger exports.")
 
     state = {"changes": 0, "exports": 0, "errors": 0}
 

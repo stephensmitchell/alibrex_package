@@ -1,4 +1,4 @@
-"""CRUD demo 17 — read every leaf occurrence's WorldTransform on the muffler.
+"""CRUD demo 17 - read every leaf occurrence's WorldTransform on the muffler.
 
 Walks the muffler tree, reads ``WorldTransform`` for each leaf part,
 extracts the translation component, and prints a position summary.

@@ -1,4 +1,4 @@
-"""Assembly demo 05 — fully constrain a part using three plane aligns.
+"""Assembly demo 05 - fully constrain a part using three plane aligns.
 
 A free part has 6 degrees of freedom (3 translation, 3 rotation).
 Aligning each of its three orthogonal design planes (XY, YZ, ZX) to

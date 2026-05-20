@@ -1,4 +1,4 @@
-"""CRUD demo 12 — drill a through-all hole in a block, verify topology.
+"""CRUD demo 12 - drill a through-all hole in a block, verify topology.
 
 Pipeline: block (6 x 4 x 2) -> sketch a single point on XY -> drill a
 0.5 cm-diameter through-all hole at that point.
@@ -62,8 +62,8 @@ def main() -> int:
 
     print(f"Features : {fc}     (expect 2)")
     print(f"Bodies   : {bodies} (expect 1)")
-    print(f"Faces    : {faces}  (expect 7 — 6 box + 1 hole)")
-    print(f"Edges    : {edges}  (expect 14 — 12 box + 2 hole rims)")
+    print(f"Faces    : {faces}  (expect 7 - 6 box + 1 hole)")
+    print(f"Edges    : {edges}  (expect 14 - 12 box + 2 hole rims)")
     print(f"STL bytes: {size:,}")
 
     return report([

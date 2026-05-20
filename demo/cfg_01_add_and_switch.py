@@ -1,4 +1,4 @@
-"""Configuration demo 01 — add configurations and switch the active one.
+"""Configuration demo 01 - add configurations and switch the active one.
 
 Adds two custom configurations (one locked, one unlocked) to a fresh
 part, switches the active configuration to each, and verifies the

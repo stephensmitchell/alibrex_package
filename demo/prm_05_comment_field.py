@@ -1,4 +1,4 @@
-"""Parameter demo 05 — round-trip the ``comment`` field on a parameter.
+"""Parameter demo 05 - round-trip the ``comment`` field on a parameter.
 
 AlibreX exposes a free-form ``comment`` string on every parameter
 (used by AlibreScript-style "favorites" + downstream PDM integrations

@@ -1,4 +1,4 @@
-"""Sketch-2D demo 03 — fully constrain a circle (center fixed + diameter dim).
+"""Sketch-2D demo 03 - fully constrain a circle (center fixed + diameter dim).
 
 A circle has 3 degrees of freedom (Cx, Cy, R). Pinning the center to
 the sketch origin removes 2; adding a diameter dimension removes the
@@ -38,7 +38,7 @@ def main() -> int:
     try:
         # Coincident the circle's center with the sketch's origin point.
         # ``FIX`` would pin it where it currently sits, which isn't what
-        # we want — we want it pulled to the origin.
+        # we want - we want it pulled to the origin.
         col = root.NewObjectCollector()
         col.Add(circle.Center)
         col.Add(sk.OriginPoint)

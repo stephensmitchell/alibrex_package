@@ -1,4 +1,4 @@
-"""Events demo 03 — log session lifecycle and changes to a CSV.
+"""Events demo 03 - log session lifecycle and changes to a CSV.
 
 Use case: keep an audit log of every document the user opens, edits, and
 closes during an Alibre session. Each event becomes one CSV row with a
@@ -61,7 +61,7 @@ def main() -> int:
     em.OnModelLoadComplete += on_load
 
     print(f"Logging to {LOG_PATH}")
-    print(f"Listening {LISTEN_SECONDS}s — open / edit / close documents in Alibre.")
+    print(f"Listening {LISTEN_SECONDS}s - open / edit / close documents in Alibre.")
     try:
         end = time.time() + LISTEN_SECONDS
         while time.time() < end:

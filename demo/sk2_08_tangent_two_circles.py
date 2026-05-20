@@ -1,4 +1,4 @@
-"""Sketch-2D demo 08 — two circles tangent to each other.
+"""Sketch-2D demo 08 - two circles tangent to each other.
 
 Two circles tangent externally satisfy:
     distance_between_centers == r1 + r2
@@ -29,7 +29,7 @@ def main() -> int:
     sk.BeginChange()
     try:
         c1 = sk.Figures.AddCircle(0.0, 0.0, 2.0)
-        c2 = sk.Figures.AddCircle(6.0, 0.0, 1.0)   # centers 6 apart, sum of radii is 3 — not tangent
+        c2 = sk.Figures.AddCircle(6.0, 0.0, 1.0)   # centers 6 apart, sum of radii is 3 - not tangent
     finally:
         sk.EndChange()
 

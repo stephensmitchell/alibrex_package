@@ -1,4 +1,4 @@
-"""Profile demo 02 — sketch + extrude four wood-trim profiles.
+"""Profile demo 02 - sketch + extrude four wood-trim profiles.
 
 Builds a part with four separate wood-trim cross-sections extruded
 into short trim pieces. Sections spaced along X so they don't overlap.
