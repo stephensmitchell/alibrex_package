@@ -2,7 +2,7 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/reading-from-a-spreadsheet
 
-Pure-Python ``openpyxl`` usage — no AlibreX involvement. Run with::
+Pure-Python ``openpyxl`` usage - no AlibreX involvement. Run with::
 
     pip install openpyxl
     python Reading-from-a-Spreadsheet.py path\\to\\Book1.xlsx
@@ -29,7 +29,7 @@ def main() -> None:
         raise SystemExit(f"xlsx not found: {args.xlsx_path}")
 
     wb = load_workbook(filename=str(args.xlsx_path))
-    sheet = wb.active   # first sheet — original used hardcoded "Sheet1"
+    sheet = wb.active   # first sheet - original used hardcoded "Sheet1"
     assert sheet is not None, f"Workbook {args.xlsx_path.name} has no active sheet"
     print(f"Workbook: {args.xlsx_path.name}  Sheet: {sheet.title}")
     print("Contents:")

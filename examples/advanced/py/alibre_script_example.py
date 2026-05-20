@@ -1,4 +1,4 @@
-"""Port of "Alibre Script Example" — the canonical AlibreScript starter.
+"""Port of "Alibre Script Example" - the canonical AlibreScript starter.
 
 Creates a 50 x 20 x 10 mm base block then cuts a Ø10 mm hole at (25, 10).
 

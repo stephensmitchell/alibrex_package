@@ -1,4 +1,4 @@
-"""Example 14 — Python port of example.linq (VB.NET / LINQPad).
+"""Example 14 - Python port of example.linq (VB.NET / LINQPad).
 
 Original walked the active part's body, listed every face, every edge, and
 printed each edge's start- and end-vertex (X,Y,Z) converted from Alibre's
@@ -6,12 +6,12 @@ internal cm to inches (÷ 2.54).
 
 Porting notes vs. the VB original:
  - VB `GetObject(, "AlibreX.AutomationHook")` (COM ROT lookup) becomes
-   `connect_to_running_alibre()` — bridges the COM proxy through CLR
+   `connect_to_running_alibre()` - bridges the COM proxy through CLR
    reflection so attribute access is typed and transparent.
  - VB `For Each e In edges` -> Python `for i in range(edges.Count): edges.Item(i)`
    (CLR collections expose `.Item(i)`; PythonNet doesn't auto-iterate them).
  - VB implicit interface narrowing (`Dim p As IADPartSession = session`) is
-   handled automatically by the bridge — once you touch a derived member
+   handled automatically by the bridge - once you touch a derived member
    (`Bodies`), it widens the proxy to IADPartSession.
  - LINQPad `.Dump()` -> `print()`.
  - VB module-level singleton -> `functools.cache` on a connect helper.

@@ -1,4 +1,4 @@
-"""Example 06 — read and write parametric values.
+"""Example 06 - read and write parametric values.
 
 Parameters are how Alibre stores driving dimensions. Writing to a parameter
 in a transaction triggers a regeneration that propagates downstream.
@@ -26,7 +26,7 @@ def main() -> None:
             target = params.Item(i)
             break
     if target is None:
-        print("\n(no 'Depth' parameter to drive — example finished)")
+        print("\n(no 'Depth' parameter to drive - example finished)")
         return
 
     print(f"\nDoubling '{target.Name}' from {target.Value} to {target.Value * 2}")

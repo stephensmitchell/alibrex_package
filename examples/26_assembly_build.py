@@ -1,4 +1,4 @@
-"""Example 26 — build an assembly from scratch.
+"""Example 26 - build an assembly from scratch.
 
 Creates a new empty assembly, adds three empty-part occurrences at
 different translations, walks the resulting tree, and runs an

@@ -98,7 +98,7 @@ def sketch_2d_showcase():
     # -------------------------
     # H. Bspline
     # -------------------------
-    # Add a spline from (0,50) → (10,60) → (20,55) → (30,65)
+    # Add a spline from (0,50) - (10,60) - (20,55) - (30,65)
     spline_points = [0,50, 10,60, 20,55, 30,65]
     sketch.AddBspline(spline_points, False)
 

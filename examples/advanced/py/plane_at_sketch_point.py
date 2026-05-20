@@ -33,7 +33,7 @@ def main() -> int:
     base = sketch_rectangle(part, xy_plane(part), "BaseSketch", 0.0, 0.0, mm(50), mm(50))
     extrude_boss(part, base, mm(10), "BaseExtrusion")
 
-    # Offset plane at the top of the block — same place a sketch on the
+    # Offset plane at the top of the block - same place a sketch on the
     # top face would land. The original then placed a point at the
     # plane's local (25, 25); in this simpler form we just create the
     # plane and report it.

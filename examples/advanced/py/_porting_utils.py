@@ -9,7 +9,7 @@ up in nearly every port:
     ``"Face<5>"``; alibrex: iterate the collection).
 
 These helpers are deliberately local to the advanced/ folder rather than
-pushed into the alibrex package — porting glue, not core API.
+pushed into the alibrex package - porting glue, not core API.
 """
 from __future__ import annotations
 
@@ -67,7 +67,7 @@ def zx_plane(part):
 def sketch_rectangle(part, plane, name: str, x1: float, y1: float, x2: float, y2: float):
     """Sketch a closed rectangle from (x1,y1) to (x2,y2) on the given plane.
 
-    Uses four AddLine calls — AlibreX 29 BETA-2's ``AddRectangle`` is
+    Uses four AddLine calls - AlibreX 29 BETA-2's ``AddRectangle`` is
     occasionally unreliable inside auto-bracketed transactions. The
     proxy auto-brackets BeginChange/EndChange.
     """
@@ -82,14 +82,14 @@ def sketch_rectangle(part, plane, name: str, x1: float, y1: float, x2: float, y2
 
 def sketch_circle(part, plane, name: str, cx: float, cy: float, radius: float):
     """Sketch a single circle on the plane. AlibreScript uses *diameter*;
-    alibrex's ``AddCircle(cx, cy, r)`` uses *radius* — convert at the call site."""
+    alibrex's ``AddCircle(cx, cy, r)`` uses *radius* - convert at the call site."""
     sk = part.Sketches.AddSketch(None, plane, name)
     sk.Figures.AddCircle(cx, cy, radius)
     return sk
 
 
 def extrude_boss(part, sketch, depth_cm: float, name: str, reversed_: bool = False):
-    """Vanilla extruded boss — 'to depth' along the sketch normal."""
+    """Vanilla extruded boss - 'to depth' along the sketch normal."""
     return part.Features.AddExtrudedBoss(
         sketch, depth_cm, ADPartFeatureEndCondition.AD_TO_DEPTH,
         None, None, 0.0,
@@ -111,7 +111,7 @@ def extrude_cut_through(part, sketch, name: str, reversed_: bool = False):
 
 
 # ---------------------------------------------------------------------------
-# Face / edge picking helpers — AlibreScript users wrote `GetFace("Face<5>")`;
+# Face / edge picking helpers - AlibreScript users wrote `GetFace("Face<5>")`;
 # alibrex doesn't expose names so we iterate the collection by geometric
 # property. These return *indices* so callers can re-fetch fresh proxies on
 # the line they're used (AlibreX 29 body proxies go stale across other calls).

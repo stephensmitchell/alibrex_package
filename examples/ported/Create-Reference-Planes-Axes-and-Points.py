@@ -2,11 +2,11 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/create-reference-planes-axes-and-points
 
-Mapping (original mm → AlibreX cm, ÷ 10):
+Mapping (original mm - AlibreX cm, ÷ 10):
 
-- ``P.AddPlane(name, base, offset)``           → ``DesignPlanes.CreateAtOffsetToPlane(None, base, offset, name)``
-- ``P.AddPoint(name, x, y, z)``                → ``DesignPoints.CreatePoint(x, y, z, name)``
-- ``P.AddAxis(name, [x1,y1,z1], [x2,y2,z2])``  → create two design points, then ``DesignAxes.CreateBy2Points``
+- ``P.AddPlane(name, base, offset)``           - ``DesignPlanes.CreateAtOffsetToPlane(None, base, offset, name)``
+- ``P.AddPoint(name, x, y, z)``                - ``DesignPoints.CreatePoint(x, y, z, name)``
+- ``P.AddAxis(name, [x1,y1,z1], [x2,y2,z2])``  - create two design points, then ``DesignAxes.CreateBy2Points``
 """
 from __future__ import annotations
 

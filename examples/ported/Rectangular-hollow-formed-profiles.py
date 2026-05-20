@@ -3,7 +3,7 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/rectangular-hollow-formed-profiles
 
 Rectangular hollow hot/cold formed profile per BS/EN-10210-2:1997 and
-BS/EN-10219:1997. Tables abbreviated for brevity — extend
+BS/EN-10219:1997. Tables abbreviated for brevity - extend
 ``HOT_DATA`` / ``COLD_DATA`` from the source article as needed.
 
 Same simplifications as ``Square-hollow-formed-profiles.py``: explicit
@@ -86,7 +86,7 @@ def main() -> None:
     )
 
     # Fillet the eight Z-aligned corner edges (4 outer, 4 inner) by
-    # midpoint. Don't cache `body` — KNOWN_ISSUES.md S2.
+    # midpoint. Don't cache `body` - KNOWN_ISSUES.md S2.
     edges = part.Bodies.Item(0).Edges
     outer = root.NewObjectCollector()
     inner = root.NewObjectCollector()

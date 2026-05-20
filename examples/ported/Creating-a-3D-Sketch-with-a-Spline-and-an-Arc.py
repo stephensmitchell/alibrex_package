@@ -34,7 +34,7 @@ def main() -> None:
         float_array(v * IN for v in spline_pts_in)
     )
 
-    # Arc — original: clockwise by start/end swap
+    # Arc - original: clockwise by start/end swap
     path.Figures.AddCircularArcByCenterStartEnd(
         -5.6634 * IN, -3.92 * IN,   -0.6795 * IN,
          0.6    * IN, -7.0275 * IN, -0.6795 * IN,

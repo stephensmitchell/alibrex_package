@@ -1,4 +1,4 @@
-"""PDM 09 — inspect the safe's recycle bin.
+"""PDM 09 - inspect the safe's recycle bin.
 
 The recycle bin holds soft-deleted file items. Its IADPDMSafeRecycleBin
 acts like an IADPDMFolder so you can iterate FileItems directly.

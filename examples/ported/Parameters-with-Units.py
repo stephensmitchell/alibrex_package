@@ -4,7 +4,7 @@ Original: https://help.alibre.com/articles/#!alibre-help-v28/parameters-with-uni
 
 AlibreScript has a notion of *script units* (``Units.Current``) and lets
 you pass an explicit ``ParameterUnits`` per call; AlibreX has no script
-unit state — parameter values always read in the parameter's own
+unit state - parameter values always read in the parameter's own
 ``ADUnits``. This port creates the same four parameters and prints their
 values with units annotated.
 """
@@ -33,7 +33,7 @@ def main() -> None:
 
     params.OpenParameterTransaction()
     try:
-        length.Value = 12.34    # cm — equivalent to 123.4 mm in the original
+        length.Value = 12.34    # cm - equivalent to 123.4 mm in the original
         rotation.Units = ADUnits.AD_DEGREES
         rotation.Value = 34.2
         width.Units = ADUnits.AD_CENTIMETERS

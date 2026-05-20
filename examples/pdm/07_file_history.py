@@ -1,4 +1,4 @@
-"""PDM 07 — version history of files in the first project.
+"""PDM 07 - version history of files in the first project.
 
 Walks the first project's tree to find the first folder that contains
 files, then prints each file's check-in history (version number, checker

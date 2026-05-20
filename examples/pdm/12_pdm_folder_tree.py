@@ -1,4 +1,4 @@
-"""PDM 12 — recursive folder tree with files, properties, and history.
+"""PDM 12 - recursive folder tree with files, properties, and history.
 
 Mirrors the `PrintFolder` helper in the C# `Program.cs` reference:
 walks each project (and library) to a given depth, printing indented

@@ -1,4 +1,4 @@
-"""Example 24 — create and drive new parameters.
+"""Example 24 - create and drive new parameters.
 
 Adds a fresh part, sketches a rectangle and extrudes it while *naming*
 the depth and width parameters at creation, then:
@@ -45,7 +45,7 @@ def main() -> None:
     )
 
     # Free-standing parameter. Note: part.Parameters returns a *snapshot*
-    # collection — call part.Parameters again to see additions.
+    # collection - call part.Parameters again to see additions.
     user_param = part.Parameters.NewParameter("Stretch", ADParameterType.AD_DISTANCE)
     print(f"\nCreated {user_param.Name!r} (type={user_param.ParameterType}, "
           f"units={user_param.Units}).")

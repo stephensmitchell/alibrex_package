@@ -7,7 +7,7 @@ Notes / departures from the original:
   dropped.
 - ``ExportRotatedSTL(filename, bottom_face, force_mm, custom, ...)`` is
   not exposed on ``IADPartSession``. The plain ``ExportSTL`` is used
-  instead — orient the part manually if you need the bottom-face
+  instead - orient the part manually if you need the bottom-face
   semantics.
 - ``Win.GetInputValue`` / ``Win.EnableInput`` (dialog state queries) are
   not implemented by ``_dialogs.py``; "Use custom settings" simply

@@ -23,7 +23,7 @@ from alibrex import connect, run_example
 from alibrex.dialogs import InputType, options_dialog
 MM = 0.1
 
-# Subset of the original tables — extend as needed.
+# Subset of the original tables - extend as needed.
 HOT_DATA = {
     20: [(2.0, 0.3, 0.2), (2.5, 0.375, 0.25)],
     25: [(2.0, 0.3, 0.2), (2.5, 0.375, 0.25), (3.0, 0.45, 0.3)],

@@ -1,6 +1,6 @@
-"""PDM 05 — browse the library folder tree.
+"""PDM 05 - browse the library folder tree.
 
-Libraries are sibling to projects on a safe — typically used for
+Libraries are sibling to projects on a safe - typically used for
 standard parts, fasteners, materials, etc. Same IADPDMFolder shape as
 projects, so the browsing pattern is identical.
 """

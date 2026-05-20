@@ -1,4 +1,4 @@
-"""Example 10 — points, vectors, and transformations.
+"""Example 10 - points, vectors, and transformations.
 
 IADGeometryFactory is the canonical builder for math primitives. Note that
 the factory itself is reached through the active part session.

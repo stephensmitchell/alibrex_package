@@ -1,4 +1,4 @@
-"""Example 18 — mass / volume / surface area / inertia of the active part.
+"""Example 18 - mass / volume / surface area / inertia of the active part.
 
 Reads `IADPartSession.PhysicalProperties` at AD_HIGH accuracy and prints
 the full set of scalar and vector results. Run with any part open.
@@ -65,7 +65,7 @@ def main() -> None:
     print(f"Surface area:  {props.SurfaceArea:.4f} cm^2")
     print(f"Faces / Edges / Vertices: {props.FacesCount} / {props.EdgesCount} / {props.VerticesCount}")
 
-    # AlibreX uses out parameters for these — the proxy surfaces them as
+    # AlibreX uses out parameters for these - the proxy surfaces them as
     # a return tuple, so we just call with no arguments.
     cx, cy, cz = props.GetCenterOfGravity()
     print(f"Center of gravity: ({cx:.4f}, {cy:.4f}, {cz:.4f}) cm")

@@ -17,7 +17,7 @@ from alibrex import (
 )
 from alibrex import connect, run_example
 MM = 0.1
-HEAD_RADIUS  = 10.0 * MM     # original AddCircle(0,0,10) — radius
+HEAD_RADIUS  = 10.0 * MM     # original AddCircle(0,0,10) - radius
 HEAD_HEIGHT  =  5.0 * MM
 SHAFT_RADIUS =  5.0 * MM
 SHAFT_LEN    = 20.0 * MM

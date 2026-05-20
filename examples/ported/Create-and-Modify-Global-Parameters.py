@@ -2,7 +2,7 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/create-and-modify-global-parameters
 
-AlibreScript ``GlobalParameters(name)`` → AlibreX
+AlibreScript ``GlobalParameters(name)`` - AlibreX
 ``root.CreateEmptyGlobalParameters(name)``; the result is an
 ``IADGlobalParameterSession`` whose ``Configurations`` you walk to add
 parameters in the usual transactional way. Saving uses the standard

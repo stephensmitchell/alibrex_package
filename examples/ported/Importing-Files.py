@@ -22,10 +22,10 @@ def main() -> None:
 
     if args.step:
         s = root.ImportSTEPFile(str(args.step))
-        print(f"Imported STEP → session '{s.Name}'")
+        print(f"Imported STEP - session '{s.Name}'")
     if args.iges:
         s = root.ImportIGESFile(str(args.iges))
-        print(f"Imported IGES → session '{s.Name}'")
+        print(f"Imported IGES - session '{s.Name}'")
     if not (args.step or args.iges):
         parser.print_help()
 

@@ -1,4 +1,4 @@
-"""PDM 06 — list files and their properties in a chosen folder.
+"""PDM 06 - list files and their properties in a chosen folder.
 
 Walks the first project's tree to find a folder with at least one file,
 then prints each file's name, version, size, lock status, and PDM

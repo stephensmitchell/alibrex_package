@@ -4,9 +4,9 @@ Original: https://help.alibre.com/articles/#!alibre-help-v28/cap-screw-iso-4762-
 
 ISO 4762 socket cap screw. The original used:
 
-- ``S.AddPolyline(Polyline)``    → emit lines individually
-- ``S.AddPolygon(cx,cy,d,n)``    → emit n lines around the circumscribed circle
-- ``Screw.AddFillet(name, edge, r)`` by face/edge name → not portable; we
+- ``S.AddPolyline(Polyline)``    - emit lines individually
+- ``S.AddPolygon(cx,cy,d,n)``    - emit n lines around the circumscribed circle
+- ``Screw.AddFillet(name, edge, r)`` by face/edge name - not portable; we
   fillet *all* edges of the hex hole bottom and tag the rim by Z position
 
 The fillet step ends up applied to broader edge sets than the original
@@ -54,10 +54,10 @@ def main() -> None:
     root = connect()
     part = root.CreateEmptyPart(f"Cap Screw M{int(DIAMETER_MM)}x{int(LENGTH_MM)}", False)
 
-    # Revolved body around the X axis (XY plane → revolve about X)
+    # Revolved body around the X axis (XY plane - revolve about X)
     xy = part.DesignPlanes.Item(0)
     profile = part.Sketches.AddSketch(None, xy, "Profile")
-    # Halfprofile (closed) — y is radial
+    # Halfprofile (closed) - y is radial
     pts = [
         (0.0,          0.0),
         (0.0,          cap_dia / 2),
@@ -75,9 +75,9 @@ def main() -> None:
     part.Features.AddRevolvedBoss(profile, None, x_axis, math.radians(360.0), "Body")
 
     # Hex socket cut on the top face (smallest-X face on body[0]).
-    # Don't cache `body` — KNOWN_ISSUES.md S2. Track the winning index
+    # Don't cache `body` - KNOWN_ISSUES.md S2. Track the winning index
     # and re-fetch the face when sketching. GetExtents has two out-params
-    # in AlibreX 29 — pass None placeholders.
+    # in AlibreX 29 - pass None placeholders.
     faces = part.Bodies.Item(0).Faces
     cap_idx, best_x = -1, +1e9
     for i in range(faces.Count):
@@ -111,7 +111,7 @@ def main() -> None:
         None, False, "Hex Hole", "Depth", "",
     )
 
-    # Rim fillet — apply to every edge whose midpoint X is near the cap
+    # Rim fillet - apply to every edge whose midpoint X is near the cap
     # face. Re-fetch edges each iteration (S2).
     edges = part.Bodies.Item(0).Edges
     rim_edges = root.NewObjectCollector()

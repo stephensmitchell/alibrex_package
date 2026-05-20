@@ -1,4 +1,4 @@
-"""Example 02 — create new part / assembly / drawing documents.
+"""Example 02 - create new part / assembly / drawing documents.
 
 Demonstrates IADRoot.CreateEmptyPart / CreateEmptyAssembly / CreateEmptyDrawing.
 The new sessions appear in Alibre as untitled in-memory documents.

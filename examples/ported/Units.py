@@ -3,7 +3,7 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/units
 
 AlibreScript has a global ``Units.Current`` that rescales every
-subsequent literal — convenient, but stateful. AlibreX has no such
+subsequent literal - convenient, but stateful. AlibreX has no such
 notion: every length is centimetres internally and you convert at the
 call site. This port keeps the original *intent* (three circles of
 known sizes) and shows the explicit conversions instead.

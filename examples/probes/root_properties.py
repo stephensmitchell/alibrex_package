@@ -1,6 +1,6 @@
 """Probe the IADRoot itself + its session list and material libraries.
 
-Works regardless of which document type is active — only needs a
+Works regardless of which document type is active - only needs a
 running Alibre instance.
 """
 from __future__ import annotations

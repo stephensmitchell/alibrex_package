@@ -50,7 +50,7 @@ def create_plane_at_sketch_point():
     # pt_3d is now a Python list [globalX, globalY, globalZ]
 
     # 8) Create a plane at the 3D point location 
-    #    Let the plane be parallel to XY-plane → normal vector is [0, 0, 1].
+    #    Let the plane be parallel to XY-plane - normal vector is [0, 0, 1].
     #    Or pick any normal of your choice: e.g., [1, 1, 1].
     normal_vector = [0, 0, 1]
     plane_name = "PlaneAtPoint"

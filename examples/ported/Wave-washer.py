@@ -7,7 +7,7 @@ profile on a perpendicular plane at its start, and sweeps the profile
 along the path. Same options form as the original via tkinter.
 
 The original's ``P.AddPlane(name, normal_vector, anchor_point)`` has no
-direct AlibreX equivalent — we use ``DesignPlanes.CreateBy3Points`` with
+direct AlibreX equivalent - we use ``DesignPlanes.CreateBy3Points`` with
 three coplanar points whose plane has the desired normal.
 """
 from __future__ import annotations
@@ -97,7 +97,7 @@ def main() -> None:
         )
     except Exception as exc:  # noqa: BLE001
         print(f"Skipping washer sweep: CreateBy3Points failed "
-              f"({type(exc).__name__}). AlibreX 29 upstream bug S8 — "
+              f"({type(exc).__name__}). AlibreX 29 upstream bug S8 - "
               "see KNOWN_ISSUES.md. The 3D helix path is built; only the "
               "swept profile is missing.")
         return

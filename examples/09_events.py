@@ -1,4 +1,4 @@
-"""Example 09 — subscribe to Alibre's session lifecycle events.
+"""Example 09 - subscribe to Alibre's session lifecycle events.
 
 EventManager exposes session-open/close/change events. PythonNet wires
 event handlers via `+=` just like in C#.
@@ -26,7 +26,7 @@ def main() -> None:
     em.OnSessionClose += on_close     # type: ignore[operator]
     em.OnSessionChange += on_change   # type: ignore[operator]
 
-    print("Listening for 30 seconds — open/close/edit a document in Alibre…")
+    print("Listening for 30 seconds - open/close/edit a document in Alibre…")
     try:
         for _ in range(30):
             time.sleep(1.0)

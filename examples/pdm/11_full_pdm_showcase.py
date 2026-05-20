@@ -1,4 +1,4 @@
-"""PDM 11 — full showcase (Python port of the C# `Program.cs` example).
+"""PDM 11 - full showcase (Python port of the C# `Program.cs` example).
 
 Comprehensive walk-through covering:
   1. Server connection details
@@ -57,7 +57,7 @@ for i in range(safes.Count):
     print(f"  [{i}] {safe.Name!r}  (ref: {safe.Reference})")
 
 if safes.Count == 0:
-    raise SystemExit("\nNo safes — nothing else to report.")
+    raise SystemExit("\nNo safes - nothing else to report.")
 
 safe = safes.Item(0)
 print(f"\n  Working with safe: {safe.Name!r}")
@@ -69,7 +69,7 @@ for i in range(defs.Count):
     pd = defs.Item(i)
     flavor = "built-in" if pd.IsBuiltInPropertyDefinition else "custom"
     print(f"  [{i}] {pd.DisplayName!r} ({pd.Name}) "
-          f"— {flavor}, type={pd.PropertyValueType}, consumed={pd.IsConsumed}")
+          f"- {flavor}, type={pd.PropertyValueType}, consumed={pd.IsConsumed}")
 
 _hdr("4. Classes")
 classes = safe.Classes
@@ -77,7 +77,7 @@ print(f"  Count: {classes.Count}")
 for i in range(classes.Count):
     cls = classes.Item(i)
     flavor = "core" if cls.IsCoreClass else "custom"
-    print(f"  [{i}] {cls.Name!r} — {flavor}, consumed={cls.IsConsumed}")
+    print(f"  [{i}] {cls.Name!r} - {flavor}, consumed={cls.IsConsumed}")
     for d in range(cls.DataItems.Count):
         print(f"       DataItem   : {cls.DataItems.Item(d).Name!r}")
     for p in range(cls.DefaultProperties.Count):
@@ -90,7 +90,7 @@ templates = safe.Templates
 print(f"  Count: {templates.Count}")
 for i in range(templates.Count):
     tmpl = templates.Item(i)
-    print(f"  [{i}] {tmpl.Name!r} — consumed={tmpl.IsConsumed}")
+    print(f"  [{i}] {tmpl.Name!r} - consumed={tmpl.IsConsumed}")
     for l in range(tmpl.Levels.Count):
         lvl = tmpl.Levels.Item(l)
         print(f"       Level: {lvl.Name!r} (class: {lvl.ClassItem.Name!r})")

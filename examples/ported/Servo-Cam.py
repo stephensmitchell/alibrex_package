@@ -40,7 +40,7 @@ def _slot(figs, x_outer: float, x_inner: float, h: float) -> None:
     cap orientation has to be picked from the slot's side. On the +X
     half, the outer cap bulges to +X (start at -h/2, end at +h/2). On
     the -X half, the same start/end ordering bulges the wrong way
-    (toward the origin) — flip start/end so the cap still bulges away.
+    (toward the origin) - flip start/end so the cap still bulges away.
     """
     figs.AddLine(x_inner, -h/2,  x_outer, -h/2)
     figs.AddLine(x_inner,  h/2,  x_outer,  h/2)
@@ -76,8 +76,8 @@ def main() -> None:
     _extrude(part, base, "Base", baseheight, is_cut=False)
 
     # Top face = highest-Z face on body[0]. Don't cache the body proxy
-    # (S2). GetExtents has two out params (S-NA — KNOWN_ISSUES section
-    # P1) — pass None placeholders and unpack the returned tuple.
+    # (S2). GetExtents has two out params (S-NA - KNOWN_ISSUES section
+    # P1) - pass None placeholders and unpack the returned tuple.
     faces = part.Bodies.Item(0).Faces
     best_idx, best_z = -1, -1e9
     for i in range(faces.Count):

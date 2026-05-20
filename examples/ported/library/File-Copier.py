@@ -6,10 +6,10 @@ the inclusion list is rewritten to point at the copied parts.
 
 Mapping:
 
-- ``Part(folder, filename)``         → ``root.OpenFile(full_path)``
-- ``P.SaveAs(folder, stem)``         → ``session.SaveAs(folder, stem)``
-- ``Assembly(folder, filename)``     → ``root.OpenFile(full_path)``
-- ``A.SaveAll(folder)``              → ``session.SaveAll(folder)``
+- ``Part(folder, filename)``         - ``root.OpenFile(full_path)``
+- ``P.SaveAs(folder, stem)``         - ``session.SaveAs(folder, stem)``
+- ``Assembly(folder, filename)``     - ``root.OpenFile(full_path)``
+- ``A.SaveAll(folder)``              - ``session.SaveAll(folder)``
 """
 from __future__ import annotations
 

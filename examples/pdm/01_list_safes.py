@@ -1,4 +1,4 @@
-"""PDM 01 — enumerate the safes available to this connection.
+"""PDM 01 - enumerate the safes available to this connection.
 
 A "safe" is the top-level vault in Alibre PDM. Each safe contains its
 own classes, property definitions, templates, projects, and libraries.

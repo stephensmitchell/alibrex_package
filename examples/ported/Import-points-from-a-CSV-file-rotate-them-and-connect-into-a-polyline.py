@@ -2,7 +2,7 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/import-points-from-a-csv-file-rotate-them-and-connect-into-a-polyline
 
-Reads 2-column XY CSV → rotates each point about ``ROTATION_POINT`` →
+Reads 2-column XY CSV - rotates each point about ``ROTATION_POINT`` -
 emits consecutive line segments on the XY plane. The original mm
 values are converted to cm (×0.1) because AlibreX is unit-fixed.
 

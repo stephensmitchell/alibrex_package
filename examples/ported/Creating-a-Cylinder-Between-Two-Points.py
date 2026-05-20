@@ -6,13 +6,13 @@ Builds a cylinder whose ends are centered on two arbitrary 3-space
 points. Differences from the AlibreScript original:
 
 - AlibreScript has ``P.AddPlane(name, normal_vector, point)`` that
-  creates a plane from a normal + point. AlibreX has no equivalent —
+  creates a plane from a normal + point. AlibreX has no equivalent -
   ``IADDesignPlanes.CreateBy3Points`` is the closest. We construct
   three points on a plane whose normal is ``p2 - p1``.
-- ``S.GlobaltoPoint(x,y,z)`` (project world→sketch-plane coords) has no
+- ``S.GlobaltoPoint(x,y,z)`` (project world-sketch-plane coords) has no
   AlibreX equivalent. Since we built the plane *centered* on ``p1``, the
   in-plane circle is centered at sketch coordinates ``(0, 0)``.
-- ``P.AddAxis(name, p1, p2)`` → ``part.DesignAxes.CreateBy2Points`` with
+- ``P.AddAxis(name, p1, p2)`` - ``part.DesignAxes.CreateBy2Points`` with
   two design points.
 """
 from __future__ import annotations
@@ -78,7 +78,7 @@ def main() -> None:
     except Exception as exc:  # noqa: BLE001
         print(f"Skipping cylinder build: CreateBy3Points failed "
               f"({type(exc).__name__}). This is the AlibreX 29 upstream "
-              "bug S8 — `Cannot create plane with Collinear points` is "
+              "bug S8 - `Cannot create plane with Collinear points` is "
               "raised for every triple. The axis between the points is "
               "still in place. See KNOWN_ISSUES.md S8.")
         return

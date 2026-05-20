@@ -1,4 +1,4 @@
-"""Example 21 — list and add part configurations (design variants).
+"""Example 21 - list and add part configurations (design variants).
 
 Exercises `IADPartSession.Configurations` and `AddConfiguration`. Each
 configuration captures a parameter snapshot; the example reads the

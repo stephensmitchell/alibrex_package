@@ -19,7 +19,7 @@ def main() -> None:
         try:
             probe_collection(sheet0.Views, "Sheets[0].Views", limit=5)
         except AttributeError:
-            print("Sheets[0] has no Views property — skipping.")
+            print("Sheets[0] has no Views property - skipping.")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 
 Creates a 40 x 20 x 10 mm block, then applies a 2 mm equal-distance
 chamfer to the four top edges (AlibreScript original hard-coded
-``Edge<6>`` — picked geometrically here instead).
+``Edge<6>`` - picked geometrically here instead).
 """
 from __future__ import annotations
 

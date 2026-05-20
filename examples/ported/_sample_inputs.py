@@ -27,11 +27,11 @@ SAMPLE_ASSEMBLY_PATH = SAMPLES_DIR / f"{SAMPLE_ASSEMBLY_NAME}.AD_ASM"
 
 
 def _save_session(session, folder: Path, name: str) -> Path:
-    """``IADSession.SaveAs(ref folder, name)`` — folder is by-ref so our
+    """``IADSession.SaveAs(ref folder, name)`` - folder is by-ref so our
     proxy returns a tuple. The file ends up at ``folder/name.AD_xxx``."""
     folder_str: object = str(folder)
     result = session.SaveAs(folder_str, name)
-    # If proxy returns (out_folder,) tuple, the call still worked — both
+    # If proxy returns (out_folder,) tuple, the call still worked - both
     # forms acceptable.
     _ = result
     # Pick the produced file extension based on the session class.

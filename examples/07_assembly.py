@@ -1,4 +1,4 @@
-"""Example 07 — walk an assembly tree and check for interferences.
+"""Example 07 - walk an assembly tree and check for interferences.
 
 Recursively prints occurrences and runs an interference check between all
 top-level pairs.

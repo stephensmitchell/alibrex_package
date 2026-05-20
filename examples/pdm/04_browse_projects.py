@@ -1,4 +1,4 @@
-"""PDM 04 — browse the project folder tree.
+"""PDM 04 - browse the project folder tree.
 
 Projects are top-level folders inside a safe. Each project is an
 IADPDMFolder, so it has both FileItems (files at that level) and

@@ -1,4 +1,4 @@
-"""Example 12 — read a Bill of Materials from a BOM table session."""
+"""Example 12 - read a Bill of Materials from a BOM table session."""
 from __future__ import annotations
 
 import sys
@@ -20,7 +20,7 @@ def main() -> None:
     n_rows = bom_session.RowCount
     print(f"BOM '{bom_session.Name}': {n_rows} rows x {n_cols} columns\n")
 
-    # Columns() and Rows() return collections — they're methods on IADBOMTableSession.
+    # Columns() and Rows() return collections - they're methods on IADBOMTableSession.
     cols = bom_session.Columns(True)   # onlyVisibleOnes
     rows = bom_session.Rows(True)
 

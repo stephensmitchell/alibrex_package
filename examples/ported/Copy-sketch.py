@@ -4,7 +4,7 @@ Original: https://help.alibre.com/articles/#!alibre-help-v28/copy-sketch
 
 AlibreScript ``Sketch.CopyFrom(other, ...)`` clones a sketch onto a new
 plane with optional translation/rotation/scale arguments. AlibreX has
-no clone-sketch primitive — the port re-emits the same primitives on the
+no clone-sketch primitive - the port re-emits the same primitives on the
 new plane. Sketch primitives are 2D and live in the new plane's local
 frame, so the same numeric coords suffice for a straight copy.
 """
@@ -13,7 +13,7 @@ from __future__ import annotations
 import sys
 from alibrex import connect, run_example
 def _add_outline(sketch) -> None:
-    # Original "AddLines([0,10,0,0,10,0,10,10], False)" — 3 connected segments.
+    # Original "AddLines([0,10,0,0,10,0,10,10], False)" - 3 connected segments.
     sketch.Figures.AddLine(0.0, 10.0, 0.0,  0.0)
     sketch.Figures.AddLine(0.0,  0.0, 10.0, 0.0)
     sketch.Figures.AddLine(10.0, 0.0, 10.0, 10.0)

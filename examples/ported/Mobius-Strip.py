@@ -7,7 +7,7 @@ produce a usable result in AlibreX 29 BETA-2. The 30 angled cross-
 section planes are created OK and the rectangles are sketched on them,
 but the final ``AddLoftBoss`` over a Mobius-twisted ring fails inside
 AlibreX with ``COMException: Object reference not set to an instance of
-an object.`` — Alibre's loft kernel chokes on the non-orientable twist
+an object.`` - Alibre's loft kernel chokes on the non-orientable twist
 geometry on this build. The same script worked in earlier AlibreScript
 runtimes per the original article. Nothing the Python side can do.
 
@@ -61,7 +61,7 @@ def main() -> None:
     center_x = DIAMETER + WIDTH / 2.0
 
     sketches = []
-    # Step 0 — on XY directly
+    # Step 0 - on XY directly
     s0 = part.Sketches.AddSketch(None, xy, "S0")
     _add_twisted_rect(s0, center_x, WIDTH/2, HEIGHT/2, 0.0)
     sketches.append(s0)
@@ -79,7 +79,7 @@ def main() -> None:
     for sk in sketches:
         sections.Add(sk)
 
-    # AlibreX 29 BETA-2 chokes on Mobius-twisted loft geometry — see the
+    # AlibreX 29 BETA-2 chokes on Mobius-twisted loft geometry - see the
     # module docstring + KNOWN_ISSUES.md S10. Wrap the call so the rest
     # of the suite keeps running.
     try:

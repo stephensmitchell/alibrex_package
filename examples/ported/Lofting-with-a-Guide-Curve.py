@@ -3,7 +3,7 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/lofting-with-a-guide-curve
 
 Two square cross-sections on parallel planes plus a 3D B-spline guide
-curve, lofted together. AlibreScript ``GuideCurveTypes.Global`` →
+curve, lofted together. AlibreScript ``GuideCurveTypes.Global`` -
 ``ADLoftGuideType.AD_GLOBAL``.
 """
 from __future__ import annotations

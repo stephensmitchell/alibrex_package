@@ -1,4 +1,4 @@
-"""Example 15 — sweep a circular profile along a path.
+"""Example 15 - sweep a circular profile along a path.
 
 Demonstrates `IADPartFeatures.AddSweptBoss`. The profile sketch lives on a
 plane that is perpendicular to the start of the path; here the path is a

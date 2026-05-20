@@ -1,4 +1,4 @@
-"""Example 05 — add fillets and a through-hole to the active part.
+"""Example 05 - add fillets and a through-hole to the active part.
 
 Demonstrates:
 - IObjectCollector to bundle edges
@@ -84,7 +84,7 @@ def main() -> None:
         hole_sketch,
         0.0,                                          # depth (ignored for through-all)
         0.5,                                          # diameter
-        True,                                         # reversed — drill into the block (XY is its bottom face)
+        True,                                         # reversed - drill into the block (XY is its bottom face)
         None,                                         # tappedThread (none)
         ADHoleDepthCondition.AD_HOLE_THROUGH_ALL,
         None, None, 0.0,                              # to-geometry (unused)
