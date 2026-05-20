@@ -488,8 +488,8 @@ $RECYCLE.BIN/
 *.swp
 
 # --- Python / Jupyter / alibrex demo run artifacts ---
-.venv/
-venv/
+.venvv/
+venvv/
 .ipynb_checkpoints/
 *.egg-info/
 
