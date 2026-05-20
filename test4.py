@@ -1,5 +1,5 @@
 from alibrex import CurrentAssembly
 
-ass = CurrentAssembly()                   # implicit connect + narrow to IADAssemblySession
+ass = CurrentAssembly()
 
 print(f"Assembly name: {ass.Name}")

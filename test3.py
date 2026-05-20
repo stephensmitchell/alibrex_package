@@ -1,5 +1,5 @@
 from alibrex import CurrentPart
 
-part = CurrentPart()                   # implicit connect + narrow to IADPartSession
+part = CurrentPart()
 
 print(f"Part name: {part.Name}")

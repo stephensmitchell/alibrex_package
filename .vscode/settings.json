@@ -10,5 +10,6 @@
     "**/__pycache__": true,
     "**/.ipynb_checkpoints": true,
     "**/*.pyc": true
-  }
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venvv/Scripts/python.exe"
 }

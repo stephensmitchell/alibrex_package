@@ -1,7 +1,7 @@
 name: Release
 
 # Trigger: push a tag like v1.0.0 (or v1.0.1, etc.).
-# The wheel(s) committed under dist/ are uploaded to PyPI via OIDC —
+# The wheel(s) committed under dist/ are uploaded to PyPI via OIDC -
 # no API tokens or repository secrets are used.
 
 on:

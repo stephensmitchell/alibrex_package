@@ -1,6 +1,6 @@
 from alibrex import CurrentPart
 
-part = CurrentPart()                   # implicit connect + narrow to IADPartSession
+part = CurrentPart()                
 body = part.Bodies.Item(0)
 
 for i in range(body.Edges.Count):
