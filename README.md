@@ -35,7 +35,7 @@
 | `examples/ported/` | Ports of the official AlibreScript samples |
 | `examples/ported/library/` | Standalone utilities (gear generator, STL exporter, equation sketcher, etc.) |
 | `examples/probes/` | Property-probe reports for the major object types |
-| `examples/pdm/` | PDM (Product Data Management) walk-through - 13 progressive scripts: connect - safes - property defs / classes / templates - projects / libraries / folder tree - file properties + version history - locked-file scan, session ↔ PDM cross-ref, full Program.cs port |
+| `examples/pdm/` | PDM (Product Data Management) walk-through - 13 progressive scripts: connect - safes - property defs / classes / templates - projects / libraries / folder tree - file properties + version history - locked-file scan, session ↔ PDM cross-ref |
 | `examples/_sample_files/` | Sample `.AD_PRT` / `.AD_ASM` materialized on first use by file-loading examples |
 
 **Requirements**
