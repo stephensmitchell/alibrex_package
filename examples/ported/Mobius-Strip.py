@@ -2,13 +2,13 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/mobius-strip
 
-KNOWN UPSTREAM ISSUE (S10 in KNOWN_ISSUES.md): this example does not
-produce a usable result in AlibreX 29 BETA-2. The 30 angled cross-
+KNOWN UPSTREAM ISSUE (S10 in KNOWN_ISSUES.md): this example may not
+produce a usable result in AlibreX 29. The 30 angled cross-
 section planes are created OK and the rectangles are sketched on them,
 but the final ``AddLoftBoss`` over a Mobius-twisted ring fails inside
 AlibreX with ``COMException: Object reference not set to an instance of
 an object.`` - Alibre's loft kernel chokes on the non-orientable twist
-geometry on this build. The same script worked in earlier AlibreScript
+geometry on affected builds. The same script worked in earlier AlibreScript
 runtimes per the original article. Nothing the Python side can do.
 
 The port is left in place so that when Alibre fixes their loft engine
@@ -79,7 +79,7 @@ def main() -> None:
     for sk in sketches:
         sections.Add(sk)
 
-    # AlibreX 29 BETA-2 chokes on Mobius-twisted loft geometry - see the
+    # Some AlibreX 29 builds choke on Mobius-twisted loft geometry - see the
     # module docstring + KNOWN_ISSUES.md S10. Wrap the call so the rest
     # of the suite keeps running.
     try:

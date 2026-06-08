@@ -60,7 +60,7 @@ os.environ["ALIBREX_SKIP_RUNNING_CHECK"] = "1"
 
 try:
     import alibrex
-    from alibrex._discover import discover_sources
+    from alibrex._discover import discover_sources, find_alibrex_dll
 except Exception as exc:
     print(f"  ERROR importing alibrex: {type(exc).__name__}: {exc}")
     sys.exit(1)
@@ -75,7 +75,7 @@ labels = {
 for key, label in labels.items():
     print(f"  {label}  {sources[key] or '(no hit)'}")
 
-resolved = alibrex._DLL_PATH
+resolved = str(find_alibrex_dll())
 print(f"\n  Resolved DLL: {resolved}")
 
 # List EVERY source whose hit matches the resolved DLL.

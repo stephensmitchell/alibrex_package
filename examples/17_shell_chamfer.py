@@ -93,7 +93,7 @@ def main() -> None:
 
     faces = root.NewObjectCollector()
     faces.Add(part.Bodies.Item(0).Faces.Item(best_idx))
-    # Known UPSTREAM issue (AlibreX 29 BETA-2, not Python-side):
+    # Known UPSTREAM issue observed in AlibreX 29, not Python-side:
     # AddShellFeature raises "Object no longer exists in server" when it
     # reads any face from the collector - even when the face was fetched
     # fresh by index immediately before Add and the collector reports

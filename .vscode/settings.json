@@ -4,7 +4,8 @@
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.extraPaths": [
     "${workspaceFolder}/demo",
-    "${workspaceFolder}/examples"
+    "${workspaceFolder}/examples",
+    "c:\\Users\\ssm\\.vscode\\extensions\\stephensmitchell.alibrescript-2.0.0\\stubs"
   ],
   "files.exclude": {
     "**/__pycache__": true,

@@ -20,7 +20,7 @@ import sys
 import uuid
 
 from _demo_utils import extrude_block, fresh_part, report
-from alibrex import ADDirectionType, ADPartFeatureEndCondition, run_example
+from alibrex import ADDirectionType, ADPartFeatureEndCondition, connect, run_example
 
 
 def _find_feature(part, name: str):
@@ -31,8 +31,19 @@ def _find_feature(part, name: str):
     raise KeyError(f"Feature {name!r} not found on part {part.Name!r}")
 
 
+def _set_feature_suppressed(root, part, name: str, suppressed: bool) -> None:
+    targets = root.NewObjectCollector()
+    targets.Add(_find_feature(part, name))
+    if suppressed:
+        part.Suppress(targets)
+    else:
+        part.Unsuppress(targets)
+    part.RegenerateAll()
+
+
 def main() -> int:
     tag = uuid.uuid4().hex[:6]
+    root = connect()
     part = fresh_part(f"CFG02_{tag}")
     extrude_block(part, 6.0, 4.0, 2.0, "Base")
 
@@ -60,17 +71,20 @@ def main() -> int:
     cfg_a = configs.AddConfiguration("Config_A_WithBump",    False)
     cfg_b = configs.AddConfiguration("Config_B_NoBump",      False)
 
-    # Activate B and suppress the Bump in it.
+    # Make the intended state explicit per configuration.
+    part.ActiveConfiguration = cfg_a
+    _set_feature_suppressed(root, part, "Bump", False)
+    suppressed_in_a = bool(_find_feature(part, "Bump").IsSuppressed)
+    print(f"In Config_A, Bump.IsSuppressed = {suppressed_in_a}")
+
     part.ActiveConfiguration = cfg_b
-    bump = _find_feature(part, "Bump")
-    bump.IsSuppressed = True
+    _set_feature_suppressed(root, part, "Bump", True)
     suppressed_in_b = bool(_find_feature(part, "Bump").IsSuppressed)
     print(f"In Config_B, Bump.IsSuppressed = {suppressed_in_b}")
 
-    # Switch to A and confirm Bump is alive there.
     part.ActiveConfiguration = cfg_a
     suppressed_in_a = bool(_find_feature(part, "Bump").IsSuppressed)
-    print(f"In Config_A, Bump.IsSuppressed = {suppressed_in_a}")
+    print(f"Back in Config_A, Bump.IsSuppressed = {suppressed_in_a}")
 
     return report([
         ("both configs added",            configs.Count == 3),

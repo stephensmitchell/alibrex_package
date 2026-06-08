@@ -1,17 +1,22 @@
 """Tiny shared helpers for the CRUD demos.
 
-Pattern: every demo either uses the *currently active* document, or - if
-the right kind isn't open - opens (creates) one. This way the demos are
-self-contained but still demonstrate the ``CurrentPart`` / ``CurrentAssembly``
-workflow.
+Pattern: demos create their own document by default so they do not mutate
+whatever the user currently has open in Alibre. Set
+``ALIBREX_DEMOS_USE_ACTIVE=1`` to opt into the older active-document workflow.
 """
 from __future__ import annotations
 
 import os
+import sys
+import traceback
+from collections import Counter
+from collections.abc import Callable
 
+import alibrex as _alibrex
 from alibrex import (
     ADDirectionType,
     ADPartFeatureEndCondition,
+    AlibreNotRunning,
     CurrentAssembly,
     CurrentPart,
     IADAssemblySession,
@@ -19,18 +24,112 @@ from alibrex import (
     narrow,
 )
 
+def _session_key(session) -> tuple[str, str, str, str]:
+    """Stable-enough identity for comparing Alibre sessions across snapshots."""
+    def read(name: str) -> str:
+        try:
+            value = getattr(session, name)
+        except Exception:  # noqa: BLE001
+            return ""
+        return "" if value is None else str(value)
+
+    return (
+        read("Identifier"),
+        read("FilePath"),
+        read("Name"),
+        read("SessionType"),
+    )
+
+
+SessionKey = tuple[str, str, str, str]
+
+
+def _session_snapshot(root) -> Counter[SessionKey]:
+    sessions: Counter[SessionKey] = Counter()
+    for i in range(root.Sessions.Count):
+        sessions[_session_key(root.Sessions.Item(i))] += 1
+    return sessions
+
+
+def _close_sessions_opened_after(root, before: Counter[SessionKey]) -> None:
+    """Close documents created/opened by a demo, preserving pre-existing sessions."""
+    remaining = before.copy()
+    to_close = []
+    for i in range(root.Sessions.Count):
+        session = root.Sessions.Item(i)
+        key = _session_key(session)
+        if remaining[key] > 0:
+            remaining[key] -= 1
+            continue
+        try:
+            name = session.Name
+        except Exception:  # noqa: BLE001
+            name = "<unknown>"
+        to_close.append((name, session))
+
+    for name, session in reversed(to_close):
+        try:
+            session.Close(False)
+            print(f"[cleanup] Closed demo session: {name}")
+        except Exception as exc:  # noqa: BLE001
+            if "Browser is not found" in str(exc) or "Index out of bounds" in str(exc):
+                continue
+            print(f"[cleanup] Could not close {name!r}: {type(exc).__name__}: {exc}")
+
+
+def run_demo(fn: Callable[[], object]) -> int:
+    """Run a demo, return its real status, and close sessions it opened."""
+    root = None
+    before = None
+    try:
+        root = connect()
+        before = _session_snapshot(root)
+        result = fn()
+        if result is None:
+            return 0
+        if isinstance(result, int):
+            return result
+        return 0
+    except AlibreNotRunning as exc:
+        print(f"[skip] {exc}", file=sys.stderr)
+        return 0
+    except SystemExit:
+        raise
+    except Exception as exc:  # noqa: BLE001
+        print(f"[error] {type(exc).__name__}: {exc}", file=sys.stderr)
+        traceback.print_exc()
+        return 1
+    finally:
+        if root is not None and before is not None:
+            try:
+                _close_sessions_opened_after(root, before)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[cleanup] Cleanup failed: {type(exc).__name__}: {exc}")
+
+
+# Existing demo files import ``run_example`` from alibrex after importing this
+# module. Patch that name in the demo process so they get the cleanup wrapper.
+_alibrex.run_example = run_demo
+
+
+def _use_active_document() -> bool:
+    value = os.environ.get("ALIBREX_DEMOS_USE_ACTIVE", "")
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
 
 def part_or_open(default_name: str):
-    """Return the active part; open a fresh empty one if none is active."""
-    try:
-        part = CurrentPart()
-        print(f"[info] Using active part: {part.Name!r}")
-        return part
-    except RuntimeError:
-        root = connect()
-        part = root.CreateEmptyPart(default_name, False)
-        print(f"[info] No active part - created {part.Name!r}.")
-        return part
+    """Return a fresh part, unless active-document demos are explicitly enabled."""
+    if _use_active_document():
+        try:
+            part = CurrentPart()
+            print(f"[info] Using active part: {part.Name!r}")
+            return part
+        except RuntimeError:
+            pass
+    root = connect()
+    part = root.CreateEmptyPart(default_name, False)
+    print(f"[info] Created demo part: {part.Name!r}.")
+    return part
 
 
 def fresh_part(name: str):
@@ -39,16 +138,18 @@ def fresh_part(name: str):
 
 
 def assembly_or_open(default_name: str):
-    """Return the active assembly; open a fresh empty one if none is active."""
-    try:
-        asm = CurrentAssembly()
-        print(f"[info] Using active assembly: {asm.Name!r}")
-        return asm
-    except RuntimeError:
-        root = connect()
-        asm = root.CreateEmptyAssembly(default_name)
-        print(f"[info] No active assembly - created {asm.Name!r}.")
-        return asm
+    """Return a fresh assembly, unless active-document demos are explicitly enabled."""
+    if _use_active_document():
+        try:
+            asm = CurrentAssembly()
+            print(f"[info] Using active assembly: {asm.Name!r}")
+            return asm
+        except RuntimeError:
+            pass
+    root = connect()
+    asm = root.CreateEmptyAssembly(default_name)
+    print(f"[info] Created demo assembly: {asm.Name!r}.")
+    return asm
 
 
 def report(checks):
@@ -64,7 +165,7 @@ def report(checks):
 
 
 # ---------------------------------------------------------------------------
-# Sketch / feature primitives - wrap the AlibreX 29 BETA-2 quirk that figure
+# Sketch / feature primitives - wrap the AlibreX 29 quirk that figure
 # additions must happen between sketch.BeginChange() and sketch.EndChange().
 # ---------------------------------------------------------------------------
 

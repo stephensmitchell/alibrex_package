@@ -1,7 +1,7 @@
-"""CRUD demo 02 - parameter create/update/read-back on the active part.
+"""CRUD demo 02 - parameter create/update/read-back on a demo part.
 
-Uses the active part if one is open; otherwise opens a fresh part and
-extrudes a small block so there's a Depth parameter to drive.
+Creates a fresh part and extrudes a small block so there's a Depth
+parameter to drive.
 
 Pass criteria:
   - A user parameter 'CRUD02_Stretch' is created.
@@ -30,6 +30,31 @@ def _find(params, name):
         if p.Name == name:
             return p
     return None
+
+
+def _equation_matches(actual: str, expected: str) -> bool:
+    return "".join(actual.split()) == "".join(expected.split())
+
+
+def _set_parameter_state(part, stretch_name: str, stretch_value: float,
+                         depth_name: str, depth_equation: str | None = None) -> None:
+    params = part.Parameters
+    params.OpenParameterTransaction()
+    try:
+        stretch = _find(params, stretch_name)
+        if stretch is None:
+            raise KeyError(f"Parameter {stretch_name!r} not found")
+        stretch.Value = stretch_value
+        if depth_equation is not None:
+            depth = _find(params, depth_name)
+            if depth is None:
+                raise KeyError(f"Parameter {depth_name!r} not found")
+            depth.Equation = depth_equation
+        params.CloseParameterTransaction()
+    except Exception:
+        params.CancelParameterTransaction()
+        raise
+    part.RegenerateAll()
 
 
 def _ensure_extrusion_with_named_depth(part, depth_name: str) -> None:
@@ -66,42 +91,30 @@ def main() -> int:
     _ensure_extrusion_with_named_depth(part, depth_name)
 
     params = part.Parameters
-    stretch = params.NewParameter(stretch_name, ADParameterType.AD_DISTANCE)
+    params.NewParameter(stretch_name, ADParameterType.AD_DISTANCE)
     stretch_found = _find(params, stretch_name) is not None
     depth = _find(params, depth_name)
     if depth is None:
         print(f"[FAIL] '{depth_name}' parameter missing after extrusion")
         return 1
 
-    params.OpenParameterTransaction()
-    try:
-        stretch.Value = 1.0
-        depth.Equation = f"{stretch_name} * 2"
-        params.CloseParameterTransaction()
-    except Exception:
-        params.CancelParameterTransaction()
-        raise
-    part.RegenerateAll()
-    depth_after_1 = depth.Value
+    expected_equation = f"{stretch_name} * 2"
+    _set_parameter_state(part, stretch_name, 1.0, depth_name, expected_equation)
+    depth_after_1 = _find(part.Parameters, depth_name).Value
 
-    params.OpenParameterTransaction()
-    try:
-        stretch.Value = 2.5
-        params.CloseParameterTransaction()
-    except Exception:
-        params.CancelParameterTransaction()
-        raise
-    part.RegenerateAll()
-    depth_after_2 = depth.Value
+    _set_parameter_state(part, stretch_name, 2.5, depth_name)
+    depth_param = _find(part.Parameters, depth_name)
+    depth_after_2 = depth_param.Value
+    depth_equation = depth_param.Equation
 
     print(f"Stretch param created : {stretch_found}")
-    print(f"Depth equation        : {depth.Equation!r}")
+    print(f"Depth equation        : {depth_equation!r}")
     print(f"Stretch=1.0  ->  Depth = {depth_after_1:.4f}  (expect ~2.0)")
     print(f"Stretch=2.5  ->  Depth = {depth_after_2:.4f}  (expect ~5.0)")
 
     return report([
         ("stretch created", stretch_found),
-        ("equation set",    depth.Equation == f"{stretch_name} * 2"),
+        ("equation set",    _equation_matches(depth_equation, expected_equation)),
         ("depth=2.0",       math.isclose(depth_after_1, 2.0, abs_tol=1e-6)),
         ("depth=5.0",       math.isclose(depth_after_2, 5.0, abs_tol=1e-6)),
     ])

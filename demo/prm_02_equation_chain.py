@@ -32,26 +32,35 @@ def _find(part, name: str):
     raise KeyError(f"Parameter {name!r} not found on part {part.Name!r}")
 
 
-def main() -> int:
-    tag = uuid.uuid4().hex[:6]
-    part = fresh_part(f"PRM02_{tag}")
+def _equation_matches(actual: str, expected: str) -> bool:
+    return "".join(actual.split()) == "".join(expected.split())
+
+
+def _set_chain(part, a_value: float, set_equations: bool = False) -> None:
     params = part.Parameters
-
-    a = params.NewParameter("A", ADParameterType.AD_DISTANCE)
-    b = params.NewParameter("B", ADParameterType.AD_DISTANCE)
-    c = params.NewParameter("C", ADParameterType.AD_DISTANCE)
-
-    # Set A=3, B=A*2, C=B+1 inside one transaction.
     params.OpenParameterTransaction()
     try:
-        a.Value = 3.0
-        b.Equation = "A * 2"
-        c.Equation = "B + 1"
+        _find(part, "A").Value = a_value
+        if set_equations:
+            _find(part, "B").Equation = "A * 2"
+            _find(part, "C").Equation = "B + 1"
         params.CloseParameterTransaction()
     except Exception:
         params.CancelParameterTransaction()
         raise
     part.RegenerateAll()
+
+
+def main() -> int:
+    tag = uuid.uuid4().hex[:6]
+    part = fresh_part(f"PRM02_{tag}")
+    params = part.Parameters
+
+    params.NewParameter("A", ADParameterType.AD_DISTANCE)
+    params.NewParameter("B", ADParameterType.AD_DISTANCE)
+    params.NewParameter("C", ADParameterType.AD_DISTANCE)
+
+    _set_chain(part, 3.0, set_equations=True)
 
     a3 = _find(part, "A").Value
     b3 = _find(part, "B").Value
@@ -60,15 +69,7 @@ def main() -> int:
     eq_c = _find(part, "C").Equation
     print(f"A=3 step  -> A={a3}  B={b3}  (eq={eq_b!r})  C={c3}  (eq={eq_c!r})")
 
-    # Bump A to 10.
-    params.OpenParameterTransaction()
-    try:
-        _find(part, "A").Value = 10.0
-        params.CloseParameterTransaction()
-    except Exception:
-        params.CancelParameterTransaction()
-        raise
-    part.RegenerateAll()
+    _set_chain(part, 10.0)
 
     a10 = _find(part, "A").Value
     b10 = _find(part, "B").Value
@@ -80,8 +81,8 @@ def main() -> int:
         ("C = B+1 at A=3",   math.isclose(c3, 7.0, abs_tol=1e-3)),
         ("B follows A=10",   math.isclose(b10, 20.0, abs_tol=1e-3)),
         ("C follows A=10",   math.isclose(c10, 21.0, abs_tol=1e-3)),
-        ("eq on B preserved",  _find(part, "B").Equation == "A * 2"),
-        ("eq on C preserved",  _find(part, "C").Equation == "B + 1"),
+        ("eq on B preserved",  _equation_matches(_find(part, "B").Equation, "A * 2")),
+        ("eq on C preserved",  _equation_matches(_find(part, "C").Equation, "B + 1")),
     ])
 
 

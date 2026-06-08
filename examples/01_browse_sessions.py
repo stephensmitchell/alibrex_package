@@ -5,18 +5,16 @@ import sys
 
 from alibrex import (
     ADObjectSubType,
-    IADAssemblySession,
-    IADDrawingSession,
-    IADPartSession,
     IADSession,
 )
 from alibrex import connect, run_example
 def classify(session: IADSession) -> str:
-    if isinstance(session, IADPartSession):  # type: ignore[arg-type]
+    subtype = int(session.SessionType)
+    if subtype in (int(ADObjectSubType.AD_PART), int(ADObjectSubType.AD_SHEET_METAL)):
         return "Part"
-    if isinstance(session, IADAssemblySession):  # type: ignore[arg-type]
+    if subtype == int(ADObjectSubType.AD_ASSEMBLY):
         return "Assembly"
-    if isinstance(session, IADDrawingSession):  # type: ignore[arg-type]
+    if subtype == int(ADObjectSubType.AD_DRAWING):
         return "Drawing"
     return f"Other({session.SessionType})"
 

@@ -30,13 +30,15 @@ def main() -> int:
     root = connect()
     sk = part.Sketches.AddSketch(None, xy_plane(part), "ConstraintShowcase")
 
-    # Draw two non-collinear lines that we'll constrain in various ways.
+    # Draw non-constrained line candidates. Avoid exactly horizontal,
+    # vertical, or parallel geometry because Alibre can reject redundant
+    # geometric constraints even if they are not explicitly recorded yet.
     sk.BeginChange()
     try:
-        l1 = sk.Figures.AddLine(0.0, 0.0, 5.0, 1.0)   # ascending
-        l2 = sk.Figures.AddLine(0.0, 5.0, 5.0, 5.0)   # nearly horizontal
-        l3 = sk.Figures.AddLine(7.0, 0.0, 7.0, 4.0)   # nearly vertical
-        l4 = sk.Figures.AddLine(0.0, 8.0, 4.0, 8.0)   # another horizontal candidate
+        sk.Figures.AddLine(0.0, 0.0, 5.0, 1.0)    # horizontal candidate
+        sk.Figures.AddLine(7.0, 0.0, 7.25, 4.0)   # vertical candidate
+        sk.Figures.AddLine(0.0, 5.0, 4.0, 6.0)    # parallel/equal pair A
+        sk.Figures.AddLine(6.0, 5.0, 9.0, 7.0)    # parallel/equal pair B
     finally:
         sk.EndChange()
 
@@ -55,9 +57,9 @@ def main() -> int:
     # H/V-constrained in sk2_07.
     cases = [
         ("HORIZONTAL", ADSketchConstraintType.AD_CONSTRAINT_HORIZONTAL, [0]),
-        ("VERTICAL",   ADSketchConstraintType.AD_CONSTRAINT_VERTICAL,   [2]),
-        ("PARALLEL",   ADSketchConstraintType.AD_CONSTRAINT_PARALLEL,   [1, 3]),
-        ("EQUAL",      ADSketchConstraintType.AD_CONSTRAINT_EQUAL,      [1, 3]),
+        ("VERTICAL",   ADSketchConstraintType.AD_CONSTRAINT_VERTICAL,   [1]),
+        ("PARALLEL",   ADSketchConstraintType.AD_CONSTRAINT_PARALLEL,   [2, 3]),
+        ("EQUAL",      ADSketchConstraintType.AD_CONSTRAINT_EQUAL,      [2, 3]),
     ]
     applied = []
     # AddConstraint is also part of the sketch-session edit; wrap in
@@ -76,14 +78,13 @@ def main() -> int:
         sk.EndChange()
 
     final = sk.SketchConstraints.Count
-    types_back = [int(sk.SketchConstraints.Item(i).SketchConstraintType) for i in range(final)]
+    new_constraints = [sk.SketchConstraints.Item(i) for i in range(before, final)]
 
     return report([
         ("all AddConstraint returned True",  all(ok for _, ok, _ in applied)),
         ("count grew by N",                  final == before + len(cases)),
         ("each constraint has a recorded type",
-            all(int(sk.SketchConstraints.Item(i).SketchConstraintType) > 0
-                for i in range(final))),
+            all(int(c.SketchConstraintType) > 0 for c in new_constraints)),
     ])
 
 

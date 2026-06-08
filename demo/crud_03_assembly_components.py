@@ -1,8 +1,7 @@
-"""CRUD demo 03 - add component occurrences to the active assembly, verify.
+"""CRUD demo 03 - add component occurrences to a demo assembly, verify.
 
-Uses the active assembly if one is open; otherwise opens a fresh empty
-assembly. Adds three empty-part occurrences at three different
-translations, then queries the tree back.
+Creates a fresh empty assembly by default. Adds three empty-part
+occurrences at three different translations, then queries the tree back.
 
 Pass criteria:
   - RootOccurrence.Occurrences.Count grows by exactly 3.

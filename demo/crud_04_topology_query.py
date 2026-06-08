@@ -6,41 +6,25 @@ For a solid rectangular box the topology is known exactly:
   - 12 edges
   - 8 vertices
 
-Uses the active part if one is open *and empty enough* (no bodies yet);
-otherwise opens a fresh part so the counts are predictable.
+Creates a fresh part so the counts are predictable and no user document
+is modified.
 """
 from __future__ import annotations
 
 import sys
 import uuid
 
-from _demo_utils import report
+from _demo_utils import fresh_part, report
 from alibrex import (
     ADDirectionType,
     ADPartFeatureEndCondition,
-    CurrentPart,
-    connect,
     run_example,
 )
 
 
-def _fresh_part(name: str):
-    return connect().CreateEmptyPart(name, False)
-
-
 def main() -> int:
-    # Topology counts only hold on an empty starting part.
-    try:
-        active = CurrentPart()
-        if active.Bodies.Count == 0:
-            part = active
-            print(f"[info] Using active part {part.Name!r} (it's empty).")
-        else:
-            part = _fresh_part(f"CRUD04_Box_{uuid.uuid4().hex[:6]}")
-            print(f"[info] Active part is not empty - created {part.Name!r}.")
-    except RuntimeError:
-        part = _fresh_part(f"CRUD04_Box_{uuid.uuid4().hex[:6]}")
-        print(f"[info] No active part - created {part.Name!r}.")
+    part = fresh_part(f"CRUD04_Box_{uuid.uuid4().hex[:6]}")
+    print(f"[info] Created demo part: {part.Name!r}.")
 
     xy = part.DesignPlanes.Item(0)
     sk = part.Sketches.AddSketch(None, xy, "CRUD04_Base")

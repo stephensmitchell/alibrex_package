@@ -21,8 +21,32 @@ import sys
 import tempfile
 import uuid
 
-from _demo_utils import MUFFLER_DIR, report, walk_occurrences
-from alibrex import connect, run_example
+from _demo_utils import MUFFLER_DIR, report
+from alibrex import ADObjectSubType, connect, run_example
+
+
+def _is_assembly_occurrence(occ) -> bool:
+    try:
+        return int(occ.DesignSession.SessionType) == int(ADObjectSubType.AD_ASSEMBLY)
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _children(occ):
+    children = occ.Occurrences
+    if children.Count == 0 and _is_assembly_occurrence(occ):
+        children = occ.DesignSession.RootOccurrence.Occurrences
+    return children
+
+
+def _walk_occurrences(root_occ, fn) -> None:
+    def visit(occ, depth):
+        children = _children(occ)
+        fn(occ, depth, children.Count)
+        for i in range(children.Count):
+            visit(children.Item(i), depth + 1)
+    for i in range(root_occ.Occurrences.Count):
+        visit(root_occ.Occurrences.Item(i), 0)
 
 
 def main() -> int:
@@ -64,14 +88,14 @@ def main() -> int:
 
     leaf_count = 0
     sub_asm_count = 0
-    def visit(occ, depth):
+    def visit(occ, depth, child_count):
         nonlocal leaf_count, sub_asm_count
-        print(" " * (depth + 1) + f"- {occ.Name}  (children={occ.Occurrences.Count})")
-        if occ.Occurrences.Count == 0:
+        print(" " * (depth + 1) + f"- {occ.Name}  (children={child_count})")
+        if child_count == 0:
             leaf_count += 1
-        elif depth == 0:
+        elif depth == 0 and _is_assembly_occurrence(occ):
             sub_asm_count += 1
-    walk_occurrences(root_occ, visit)
+    _walk_occurrences(root_occ, visit)
 
     print(f"\nLeaves: {leaf_count}, top-level sub-assemblies: {sub_asm_count}")
 

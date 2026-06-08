@@ -18,7 +18,8 @@ import clr
 clr.AddReference("System.Windows.Forms")  # type: ignore[attr-defined]
 from System.Windows.Forms import Application  # type: ignore[import-not-found]
 
-from alibrex import connect, run_example
+from alibrex import connect
+from _demo_utils import run_demo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LOG_PATH = os.path.join(HERE, "session_log.csv")
@@ -79,4 +80,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(run_example(main))
+    sys.exit(run_demo(main))

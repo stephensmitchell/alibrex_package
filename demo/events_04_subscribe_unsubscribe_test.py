@@ -14,8 +14,8 @@ from __future__ import annotations
 
 import sys
 
-from alibrex import connect, run_example
-from _demo_utils import report
+from alibrex import connect
+from _demo_utils import report, run_demo
 
 
 def main() -> int:
@@ -62,4 +62,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(run_example(main))
+    sys.exit(run_demo(main))

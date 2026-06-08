@@ -1,11 +1,11 @@
-"""CRUD demo 01 - extrude a box on the active part, export STEP, verify.
+"""CRUD demo 01 - extrude a box in a demo part, export, verify.
 
-Uses the active part if one is open; otherwise opens a fresh empty part.
+Creates a fresh part by default so the demo does not alter a user document.
 
 Pass criteria:
   - Feature count increases by exactly 1 after AddExtrudedBoss.
   - Bodies.Count increases by at least 1.
-  - STEP file is written and >= 1 KB on disk.
+  - At least one export file is written and >= 1 KB on disk.
 """
 from __future__ import annotations
 
@@ -51,7 +51,7 @@ def main() -> int:
     fc_after = part.FeatureCount
     bc_after = part.Bodies.Count
 
-    # NOTE: ExportAP242 (STEP) AccessViolation-crashes Alibre 29 BETA-2 on
+    # NOTE: ExportAP242 (STEP) has AccessViolation-crashed Alibre 29 on
     # simple solids - a native crash the CLR cannot catch, which would
     # terminate this whole demo before the verification step. So we only
     # exercise STL and IGES here. Restore AP242 once Alibre fixes it.

@@ -67,7 +67,7 @@ def zx_plane(part):
 def sketch_rectangle(part, plane, name: str, x1: float, y1: float, x2: float, y2: float):
     """Sketch a closed rectangle from (x1,y1) to (x2,y2) on the given plane.
 
-    Uses four AddLine calls - AlibreX 29 BETA-2's ``AddRectangle`` is
+    Uses four AddLine calls - AlibreX 29's ``AddRectangle`` has been
     occasionally unreliable inside auto-bracketed transactions. The
     proxy auto-brackets BeginChange/EndChange.
     """

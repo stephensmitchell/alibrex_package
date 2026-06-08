@@ -46,7 +46,7 @@ def main() -> int:
     print(f"Step 2: created '{angled_plane.Name}' at 30 degrees to XY around Y-axis.")
 
     # Step 3: Plane from three non-coplanar corner points.
-    # Note: `IADDesignPlanes.CreateBy3Points` in AlibreX 29 BETA-2 raises
+    # Note: `IADDesignPlanes.CreateBy3Points` in some AlibreX 29 builds raises
     # "Cannot create plane with Collinear points" regardless of the actual
     # input points - verified by trying half a dozen obviously-non-collinear
     # triples. Treated as an upstream bug for now; the call is wrapped in

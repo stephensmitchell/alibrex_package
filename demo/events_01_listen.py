@@ -25,7 +25,8 @@ import clr
 clr.AddReference("System.Windows.Forms")  # type: ignore[attr-defined]
 from System.Windows.Forms import Application  # type: ignore[import-not-found]
 
-from alibrex import connect, run_example
+from alibrex import connect
+from _demo_utils import run_demo
 
 LISTEN_SECONDS = 30
 
@@ -105,4 +106,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(run_example(main))
+    sys.exit(run_demo(main))

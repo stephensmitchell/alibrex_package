@@ -46,13 +46,13 @@ def main() -> int:
         bot = sk.Figures.AddLine(0.1, -1.05, 7.9, -1.1)            # ~bottom
         larc = sk.Figures.AddCircularArcByCenterStartEnd(
             0.0, 0.0,
-            0.1, -1.05,    # bottom-left corner area
             0.2, 1.1,      # top-left corner area
+            0.1, -1.05,    # bottom-left corner area
         )
         rarc = sk.Figures.AddCircularArcByCenterStartEnd(
             8.0, 0.0,
-            7.8, 1.05,
             7.9, -1.1,
+            7.8, 1.05,
         )
     finally:
         sk.EndChange()
@@ -65,12 +65,12 @@ def main() -> int:
 
     sk.BeginChange()
     try:
-        # Stitch endpoints: top.Start to larc.End, top.End to rarc.Start,
-        # bot.Start to larc.Start, bot.End to rarc.End.
-        add([top.Start, larc.End],   ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
-        add([top.End,   rarc.Start], ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
-        add([bot.Start, larc.Start], ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
-        add([bot.End,   rarc.End],   ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
+        # Stitch endpoints: left arc is top -> bottom around the outside,
+        # right arc is bottom -> top around the outside.
+        add([top.Start, larc.Start], ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
+        add([top.End,   rarc.End],   ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
+        add([bot.Start, larc.End],   ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
+        add([bot.End,   rarc.Start], ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
         # Both straights horizontal, both arcs same radius.
         add([top], ADSketchConstraintType.AD_CONSTRAINT_HORIZONTAL)
         add([bot], ADSketchConstraintType.AD_CONSTRAINT_HORIZONTAL)
@@ -90,6 +90,10 @@ def main() -> int:
 
     print(f"Left arc:  center=({larc.Center.X:.4f}, {larc.Center.Y:.4f})  r={larc.Radius:.4f}")
     print(f"Right arc: center=({rarc.Center.X:.4f}, {rarc.Center.Y:.4f})  r={rarc.Radius:.4f}")
+    print(f"Left arc endpoints:  start=({larc.Start.X:.4f}, {larc.Start.Y:.4f})  "
+          f"end=({larc.End.X:.4f}, {larc.End.Y:.4f})")
+    print(f"Right arc endpoints: start=({rarc.Start.X:.4f}, {rarc.Start.Y:.4f})  "
+          f"end=({rarc.End.X:.4f}, {rarc.End.Y:.4f})")
     print(f"Top line:  start=({top.Start.X:.4f}, {top.Start.Y:.4f})  "
           f"end=({top.End.X:.4f}, {top.End.Y:.4f})")
     print(f"Bot line:  start=({bot.Start.X:.4f}, {bot.Start.Y:.4f})  "
@@ -110,6 +114,8 @@ def main() -> int:
         ("top line horizontal",           math.isclose(top.Start.Y, top.End.Y, abs_tol=1e-3)),
         ("bot line horizontal",           math.isclose(bot.Start.Y, bot.End.Y, abs_tol=1e-3)),
         ("top above bot",                 top.Start.Y > bot.Start.Y),
+        ("left arc top-to-bottom",        larc.Start.Y > larc.Center.Y and larc.End.Y < larc.Center.Y),
+        ("right arc bottom-to-top",       rarc.Start.Y < rarc.Center.Y and rarc.End.Y > rarc.Center.Y),
     ])
 
 

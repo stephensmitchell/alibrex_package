@@ -3,15 +3,15 @@ from __future__ import annotations
 
 import sys
 
-from alibrex import IADBOMTableSession, connect, run_example
+from alibrex import ADObjectSubType, IADBOMTableSession, connect, narrow, run_example
 def main() -> None:
     root = connect()
 
     bom_session: IADBOMTableSession | None = None
     for i in range(root.Sessions.Count):
         s = root.Sessions.Item(i)
-        if isinstance(s, IADBOMTableSession):  # type: ignore[arg-type]
-            bom_session = s  # type: ignore[assignment]
+        if int(s.SessionType) == int(ADObjectSubType.AD_BOM_TABLE):
+            bom_session = narrow(s, IADBOMTableSession)
             break
     if bom_session is None:
         raise RuntimeError("No BOM table session open in Alibre.")
