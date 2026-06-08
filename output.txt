@@ -1,0 +1,19 @@
+Offsetting sketch 'Sketch<1>' by 1.
+=== OFFSET SKETCH === Sketch: 'Sketch<1>', Offset: 1
+  dimension placement failed: No opened transaction found. OpenParameterTransaction () should be called prior to any Parameter modifications. Can not modify parameter
+Status: Success
+Message: Offset 'Sketch<1>' by 1: 7 entities, 7 driven reference lines, 41 constraints, 7 corner joins.
+SketchName: Sketch<1>
+OffsetDistance: 1
+EntitiesOffset: 7
+DrivenReferenceLines: 7
+ConstraintsAdded: 41
+ConstraintsFailed: 0
+CornerJoins: 7
+Dimensioned: True
+SkippedFigures: 0
+IsClosed: True
+TotalConstraints: 116
+TotalDimensions: 14
+Part regenerated.
+0
