@@ -589,10 +589,14 @@ def offset_sketch(root, part: IADPartSession, sketch_name: str, offset_value: fl
                 try:
                     placed_dim = sketch.Dimensions.PlaceLinearDimension(master, d)
                     dimensioned = placed_dim is not None
-                    if placed_dim is not None and placed_dim.Parameter is not None:
-                        placed_dim.Parameter.Name = marker_name
+                    if placed_dim is not None:
+                        parameter = placed_dim.Parameter
+                        if parameter is None:
+                            raise RuntimeError("created dimension has no parameter to name")
+                        rename_parameter(part, parameter, marker_name)
                 except Exception as exc_dim:  # noqa: BLE001
-                    print(f"  dimension placement failed: {exc_dim}")
+                    hard_error = f"dimension placement failed: {exc_dim}"
+                    print(f"  {hard_error}")
 
         except Exception as exc:  # noqa: BLE001
             hard_error = str(exc)
@@ -706,6 +710,20 @@ def marker_exists(sketch, marker_name: str) -> bool:
     except Exception as exc:  # noqa: BLE001
         print(f"  MarkerExists check failed: {exc}")
     return False
+
+
+def rename_parameter(part: IADPartSession, parameter, name: str) -> None:
+    params = part.Parameters
+    params.OpenParameterTransaction()
+    try:
+        parameter.Name = name
+        params.CloseParameterTransaction()
+    except Exception:
+        try:
+            params.CancelParameterTransaction()
+        except Exception as cancel_exc:  # noqa: BLE001
+            print(f"  CancelParameterTransaction failed: {cancel_exc}")
+        raise
 
 
 def rollback_figures(sketch, created: list[Any], dim_obj) -> None:
