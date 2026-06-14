@@ -1,9 +1,18 @@
 """PDM 09 - inspect the safe's recycle bin.
 
-The recycle bin holds soft-deleted file items. Its IADPDMSafeRecycleBin
-acts like an IADPDMFolder so you can iterate FileItems directly.
+The recycle bin holds soft-deleted items. Unlike a plain folder, an
+IADPDMSafeRecycleBin only exposes Count / Item(i) - it has no FileItems.
+Each top-level Item is an organizing folder (e.g. "By Type"); the deleted
+files live inside those folders, so we wrap each item as an IADPDMFolder
+and walk it recursively.
+
+The bin's Item(i) is typed as Object, so AlibreX hands back a raw COM
+object that the bridge can't auto-wrap; the shared as_folder() helper
+(see _pdm_util.py) casts it to a typed IADPDMFolder.
 """
 from alibrex import connect
+
+from _pdm_util import as_folder
 
 # === EDIT IF NEEDED =========================================================
 PDM_URL      = "http://localhost:8099/"
@@ -31,7 +40,21 @@ print(f"Safe: {safe.Name!r}")
 print(f"Recycle bin: {bin.Name!r}")
 print(f"Items: {bin.Count}\n")
 
-files = bin.FileItems
-for i in range(files.Count):
-    fi = files.Item(i)
-    print(f"  {fi.Name}.{fi.Extension}  (v{fi.CurrentVersionID}, {fi.FileSize:,} bytes)")
+def walk(folder, depth=0):
+    pad = "  " * depth
+    print(f"{pad}[{folder.Name}/]")
+    files = folder.FileItems
+    for i in range(files.Count):
+        fi = files.Item(i)
+        print(f"{pad}  - {fi.Name}.{fi.Extension}  "
+              f"(v{fi.CurrentVersionID}, {fi.FileSize:,} bytes)")
+    subs = folder.Folders
+    for i in range(subs.Count):
+        walk(subs.Item(i), depth + 1)
+
+
+if bin.Count == 0:
+    print("Recycle bin is empty.")
+else:
+    for i in range(bin.Count):
+        walk(as_folder(bin.Item(i)))

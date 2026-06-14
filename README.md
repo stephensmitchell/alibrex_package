@@ -49,6 +49,8 @@
 
 see `notebooks/diagnose_setup.ipynb` to inspect what each source returns on your machine.
 
+## The demo and example code is intended to be used as a reference and learning resource, not production-ready. The API is subject to change without deprecation, but breaking changes will be documented in the changelog and release notes.
+
 **Quick start**
 
 Open Alibre Design and any part document, then:
