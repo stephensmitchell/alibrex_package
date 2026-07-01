@@ -1,4 +1,4 @@
-"""Example 08 - export the active drawing to PDF, DWG, DXF, and BOM."""
+"""Example 08: export the active drawing to PDF, DWG, DXF, and BOM."""
 from __future__ import annotations
 
 import sys

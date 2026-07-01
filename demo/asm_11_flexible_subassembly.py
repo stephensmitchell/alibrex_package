@@ -1,10 +1,10 @@
-"""Assembly demo 11 - toggle a sub-assembly's IsFlexible flag.
+"""Assembly demo 11: toggle a sub-assembly's IsFlexible flag.
 
 By default, a sub-assembly occurrence in a parent assembly behaves as
 a rigid block: its internal constraints are pre-solved and the parent's
 constraints can only move the whole sub-assembly. Setting
 ``IADOccurrence.IsFlexible = True`` lets the parent's solver also reach
-into the sub-assembly's joints - useful for kinematic linkages.
+into the sub-assembly's joints, useful for kinematic linkages.
 
 Opens the muffler and toggles the IsFlexible flag on a sub-assembly
 occurrence (``baffle plate choke tube assembly<1>``), verifying it

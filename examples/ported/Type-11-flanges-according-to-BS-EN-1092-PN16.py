@@ -59,7 +59,7 @@ def main() -> None:
     root = connect()
     part = root.CreateEmptyPart(f"DN{dn} Flange PN16", False)
 
-    # Revolved body (revolve about Y) - half-profile polyline
+    # Revolved body (revolve about Y): half-profile polyline
     xy = part.DesignPlanes.Item(0)
     y_axis = part.DesignAxes.Item(1)
     profile = part.Sketches.AddSketch(None, xy, "Profile")
@@ -77,13 +77,13 @@ def main() -> None:
     ]
     for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
         profile.Figures.AddLine(x1, y1, x2, y2)
-    # AlibreX 29 takes the revolve angle in RADIANS, not degrees - pass
+    # AlibreX 29 takes the revolve angle in RADIANS, not degrees. Pass
     # 360.0 and you get a "near-360" tube (5 faces) instead of a solid.
     part.Features.AddRevolvedBoss(profile, None, y_axis, math.radians(360.0), "Body")
 
-    # Bolt holes - N circles around bolt-circle radius K/2. The flange
+    # Bolt holes: N circles around bolt-circle radius K/2. The flange
     # axis is Y after the revolve, so the bolt-hole sketch belongs on
-    # the XZ plane (DesignPlanes.Item(2)), not XY - otherwise the cut
+    # the XZ plane (DesignPlanes.Item(2)), not XY. Otherwise the cut
     # is normal to Z and bores along the wrong axis entirely.
     xz = part.DesignPlanes.Item(2)
     holes = part.Sketches.AddSketch(None, xz, "Holes")

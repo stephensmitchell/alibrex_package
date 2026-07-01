@@ -1,4 +1,4 @@
-"""PDM 03 - list classes and templates on the first safe.
+"""PDM 03: list classes and templates on the first safe.
 
 Classes carry **data items** (typed fields) and **default property values**.
 Templates assemble classes into multi-level workflows (each level has an

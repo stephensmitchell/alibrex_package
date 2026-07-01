@@ -1,4 +1,4 @@
-"""Example 19 - export the active part to STEP / IGES / STL / OBJ.
+"""Example 19: export the active part to STEP / IGES / STL / OBJ.
 
 Files are written to a timestamped folder under the system temp dir.
 Run with any part open. Exercises the IADPartSession.Export* family.
@@ -21,7 +21,7 @@ def main() -> None:
 
     base = os.path.join(out_dir, part.Name or "part")
 
-    # STEP (AP242 - newer)
+    # STEP (AP242, newer)
     step_path = base + ".step"
     part.ExportAP242(step_path)
 
@@ -29,7 +29,7 @@ def main() -> None:
     iges_path = base + ".igs"
     part.ExportIGES(iges_path)
 
-    # STL - coarse mesh
+    # STL: coarse mesh
     stl_path = base + ".stl"
     part.ExportSTL(stl_path, 0.5, 15.0, 0.05)
 

@@ -10,7 +10,7 @@ Differences from the original:
   * AlibreScript's ``AddPlane(name, normal_vec, origin_pt)`` (general
     "plane from a normal and a point") is rebuilt here as an offset
     plane parallel to XY at z = block_depth, which is what the original
-    actually wanted given a normal of [0, 0, 1].
+    wanted given a normal of [0, 0, 1].
 """
 from __future__ import annotations
 
@@ -33,9 +33,9 @@ def main() -> int:
     base = sketch_rectangle(part, xy_plane(part), "BaseSketch", 0.0, 0.0, mm(50), mm(50))
     extrude_boss(part, base, mm(10), "BaseExtrusion")
 
-    # Offset plane at the top of the block - same place a sketch on the
+    # Offset plane at the top of the block: same place a sketch on the
     # top face would land. The original then placed a point at the
-    # plane's local (25, 25); in this simpler form we just create the
+    # plane's local (25, 25); in this simpler form we create the
     # plane and report it.
     plane_at_point = part.DesignPlanes.CreateAtOffsetToPlane(
         None, xy_plane(part), mm(10), "PlaneAtPoint",

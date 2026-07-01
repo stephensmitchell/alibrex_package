@@ -1,4 +1,4 @@
-"""CRUD demo 07 - sweep a circular profile along a straight path.
+"""CRUD demo 07: sweep a circular profile along a straight path.
 
 A constant-section sweep along a straight line gives the same topology
 as a cylinder: 3 faces (start cap, end cap, lateral surface), 2 edges.

@@ -1,17 +1,17 @@
-"""Assembly demo 05 - fully constrain a part using three plane aligns.
+"""Assembly demo 05: fully constrain a part using three plane aligns.
 
 A free part has 6 degrees of freedom (3 translation, 3 rotation).
 Aligning each of its three orthogonal design planes (XY, YZ, ZX) to
 the matching plane on an anchored part forces the constrained part to
 sit at the anchor's origin with identity rotation.
 
-Note: three plane constraints lock 3×3 = 9 axes worth of DOF on a body
+Three plane constraints lock 3×3 = 9 axes worth of DOF on a body
 that only has 6, so the third constraint is redundant. Alibre's solver
 still finds the unique solution; the redundant constraint may report
 ``HasError == True`` even though the part is correctly positioned, so
 this demo asserts the *geometric result*, not zero errors.
 
-We use ``ALIGN`` (same-normal direction) rather than ``MATE`` (opposite-
+Uses ``ALIGN`` (same-normal direction) rather than ``MATE`` (opposite-
 normal direction) so the rotation comes out as identity rather than a
 180° flip. With three MATEs the part is reflected about each plane
 and ends up rotated 180° about a diagonal axis.

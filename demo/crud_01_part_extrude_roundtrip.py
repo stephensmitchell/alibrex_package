@@ -1,4 +1,4 @@
-"""CRUD demo 01 - extrude a box in a demo part, export, verify.
+"""CRUD demo 01: extrude a box in a demo part, export, verify.
 
 Creates a fresh part by default so the demo does not alter a user document.
 
@@ -52,9 +52,9 @@ def main() -> int:
     bc_after = part.Bodies.Count
 
     # NOTE: ExportAP242 (STEP) has AccessViolation-crashed Alibre 29 on
-    # simple solids - a native crash the CLR cannot catch, which would
-    # terminate this whole demo before the verification step. So we only
-    # exercise STL and IGES here. Restore AP242 once Alibre fixes it.
+    # simple solids: a native crash the CLR cannot catch, which would
+    # terminate this demo before the verification step. This demo runs
+    # only STL and IGES. Restore AP242 once Alibre fixes it.
     base = os.path.join(HERE, f"crud_01_{part.Name}")
     exports = (
         ("stl", lambda p: part.ExportSTL(p, 0.5, 15.0, 0.05)),

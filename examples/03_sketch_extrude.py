@@ -1,4 +1,4 @@
-"""Example 03 - sketch a rectangle on the XY plane and extrude it.
+"""Example 03: sketch a rectangle on the XY plane and extrude it.
 
 Demonstrates the core modeling pipeline:
     plane -> sketch -> figures -> feature

@@ -1,4 +1,4 @@
-"""CRUD demo 11 - equal-distance edge chamfer on the top 4 edges of a box.
+"""CRUD demo 11: equal-distance edge chamfer on the top 4 edges of a box.
 
 Pipeline: block (6 x 4 x 2) -> chamfer the 4 highest-Z edges by 0.3 cm.
 
@@ -35,7 +35,7 @@ def main() -> int:
     extrude_block(part, 6.0, 4.0, 2.0, "Block")
     edges_before = part.Bodies.Item(0).Edges.Count
 
-    # Don't cache body - S2 in KNOWN_ISSUES.md (body proxies go stale).
+    # Don't cache body: S2 in KNOWN_ISSUES.md (body proxies go stale).
     edges = part.Bodies.Item(0).Edges
     scored = []
     for i in range(edges.Count):

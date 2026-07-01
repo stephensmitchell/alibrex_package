@@ -1,7 +1,7 @@
-"""Example 09 - subscribe to Alibre's session lifecycle events.
+"""Example 09: subscribe to Alibre's session lifecycle events.
 
 EventManager exposes session-open/close/change events. PythonNet wires
-event handlers via `+=` just like in C#.
+event handlers via `+=` like in C#.
 """
 from __future__ import annotations
 

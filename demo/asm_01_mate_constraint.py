@@ -1,4 +1,4 @@
-"""Assembly demo 01 - MATE two muffler parts together, verify movement.
+"""Assembly demo 01: MATE two muffler parts together, verify movement.
 
 Drops two on-disk muffler parts (cylinder + choke tube) into a fresh
 assembly at different positions, then adds a MATE constraint between

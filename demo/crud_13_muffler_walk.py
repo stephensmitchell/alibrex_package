@@ -1,7 +1,7 @@
-"""CRUD demo 13 - open the bundled muffler assembly and walk its tree.
+"""CRUD demo 13: open the bundled muffler assembly and walk its tree.
 
 Opens the muffler assembly (read-only), prints the occurrence tree
-indented by depth, and verifies the structure we know is in the file:
+indented by depth, and verifies the known structure:
 6 top-level children, three ``choke tube assembly`` sub-assemblies,
 two ``nozzle head`` sub-assemblies, and at least one suppressed
 outlet orifice plate.

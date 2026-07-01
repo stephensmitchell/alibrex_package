@@ -1,4 +1,4 @@
-"""Example 17 - chain modeling features: block -> chamfer -> shell.
+"""Example 17: chain modeling features: block -> chamfer -> shell.
 
 Builds a block, chamfers its top edges, then hollows it from the top face
 to leave a thin-walled tray. Exercises:
@@ -46,7 +46,7 @@ def main() -> None:
         None, False, "Block", "Depth", "",
     )
 
-    # Body proxies in AlibreX 29 can go stale between property reads - fetch
+    # Body proxies in AlibreX 29 can go stale between property reads. Fetch
     # the edges collection in one shot from a fresh body lookup.
     edges_coll = part.Bodies.Item(0).Edges
 
@@ -93,9 +93,9 @@ def main() -> None:
 
     faces = root.NewObjectCollector()
     faces.Add(part.Bodies.Item(0).Faces.Item(best_idx))
-    # Known UPSTREAM issue observed in AlibreX 29, not Python-side:
+    # Known UPSTREAM issue in AlibreX 29, not Python-side:
     # AddShellFeature raises "Object no longer exists in server" when it
-    # reads any face from the collector - even when the face was fetched
+    # reads any face from the collector, even when the face was fetched
     # fresh by index immediately before Add and the collector reports
     # Count == 1. Reproduced from a native VB.NET LINQPad query, so the
     # bug is in Alibre's automation layer, not our COM proxy. Other

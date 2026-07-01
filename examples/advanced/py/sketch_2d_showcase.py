@@ -4,8 +4,8 @@ One 2D sketch on XY plane with every shape alibrex supports: lines,
 rectangle, circle, arc by center-start-end, ellipse, elliptic arc,
 polygon (drawn as N inscribed line segments), polyline, B-spline.
 
-AlibreScript's ``AddPolygon`` doesn't have a direct alibrex equivalent;
-we draw an N-sided polygon as line segments inscribed in the diameter.
+alibrex has no direct equivalent of AlibreScript's ``AddPolygon``, so
+this draws an N-sided polygon as line segments inscribed in the diameter.
 """
 from __future__ import annotations
 

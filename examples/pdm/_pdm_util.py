@@ -2,7 +2,7 @@
 
 A few PDM members are typed as a plain ``Object`` (for example
 ``IADPDMSafeRecycleBin.Item(i)``). AlibreX returns those as raw COM
-objects, which the alibrex bridge can't auto-wrap - so attribute access
+objects, which the alibrex bridge can't auto-wrap, so attribute access
 on them fails. ``as_interface`` casts such a raw object to a known
 AlibreX interface so it behaves like any other typed alibrex object.
 """

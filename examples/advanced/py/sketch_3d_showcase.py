@@ -18,7 +18,7 @@ def main() -> None:
 
     sk.BeginChange()
     try:
-        # A) Lines - single line from (0,0,0) to (10,0,5) mm.
+        # A) Lines: single line from (0,0,0) to (10,0,5) mm.
         sk.Figures.AddLine(0.0, 0.0, 0.0, mm(10), 0.0, mm(5))
 
         # B) Arc by center-start-end:
@@ -38,7 +38,7 @@ def main() -> None:
         ])
         sk.Figures.AddBsplineByInterpolation(bspline_pts)
 
-        # D) Polyline - zig-zag from 4 corner points.
+        # D) Polyline: zig-zag from 4 corner points.
         poly_pts = float_array([
             mm(20),  0.0,     0.0,
             mm(25),  mm(5),   mm(5),

@@ -1,7 +1,7 @@
-"""Example 22 - exercise the full 2D sketch-figure surface.
+"""Example 22: exercise the full 2D sketch-figure surface.
 
 Creates one sketch per primitive family so each `IADSketchFigures.Add*`
-method gets a smoke test. No extrude - open the part and inspect the
+method gets a smoke test. No extrude; open the part and inspect the
 sketches visually. All coordinates are in centimeters.
 
 Covers: AddSketchPoint, AddLine, AddRectangle, AddCircle,

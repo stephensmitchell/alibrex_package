@@ -1,6 +1,6 @@
-"""Example 27 - inspect the active assembly's structure and constraints.
+"""Example 27: inspect the active assembly's structure and constraints.
 
-Run this against an existing assembly (any complexity). It prints the
+Run this against an existing assembly (any complexity). Prints the
 full occurrence tree with world transforms, lists every assembly
 constraint with its type, and dumps any global parameters declared on
 the session.
@@ -38,7 +38,7 @@ def main() -> None:
     walk(asm.RootOccurrence)
 
     # AlibreX returns None for these collections when empty rather than an
-    # empty collection - guard each access.
+    # empty collection; guard each access.
     def safe_count(coll):
         return coll.Count if coll is not None else 0
 

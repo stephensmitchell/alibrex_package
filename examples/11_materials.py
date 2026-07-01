@@ -1,4 +1,4 @@
-"""Example 11 - assign a material to the active part.
+"""Example 11: assign a material to the active part.
 
 Browses installed material libraries and applies the first material whose
 name contains 'Steel'.

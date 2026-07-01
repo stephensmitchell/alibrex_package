@@ -10,9 +10,9 @@ Differences from the original:
     ``alibrex.dialogs.utility_dialog`` (tkinter-backed).
   * AlibreScript's ``WindowsInputTypes.String`` becomes
     ``alibrex.dialogs.InputType.String``.
-  * The "refresh other rows" trick the original used to push driven
-    values back into the dialog isn't available through tk; the new
-    dialog only updates after the user clicks the action button.
+  * tk offers no equivalent of the original's "refresh other rows"
+    trick for pushing driven values back into the dialog, so the
+    dialog updates only after the user clicks the action button.
 """
 from __future__ import annotations
 

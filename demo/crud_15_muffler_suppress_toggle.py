@@ -1,4 +1,4 @@
-"""CRUD demo 15 - toggle an occurrence's suppression state, verify, restore.
+"""CRUD demo 15: toggle an occurrence's suppression state, verify, restore.
 
 Finds the ``outlet orifice plate 2a<1>`` leaf occurrence on the muffler
 assembly, toggles ``IsSuppressed`` on / off, and reads the value back

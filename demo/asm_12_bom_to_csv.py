@@ -1,8 +1,8 @@
-"""Assembly demo 12 - write the muffler's bill of materials to a CSV.
+"""Assembly demo 12: write the muffler's bill of materials to a CSV.
 
 Walks the muffler assembly tree, tallies leaf parts by base name
 (stripping the ``<N>`` instance suffix), and writes the result to a
-``.csv`` file. This is the typical kickoff for any "feed our PLM /
+``.csv`` file. Kicks off a typical "feed our PLM /
 inventory / cost system from a CAD assembly" workflow.
 
 Pass criteria:

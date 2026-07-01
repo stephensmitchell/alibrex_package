@@ -4,13 +4,13 @@ Original: https://help.alibre.com/articles/#!alibre-help-v28/creating-and-manipu
 
 Maps:
 
-- ``Asm.AddPart(path, x, y, z, rx, ry, rz, ...)``  -
+- ``Asm.AddPart(path, x, y, z, rx, ry, rz, ...)``  :
   build a ``IADTransformation`` (translation × rotation) via
   ``IADGeometryFactory``, then ``Occurrences.Add(path, xform)``
-- ``Asm.AnchorPart(occ)`` - ``occ.IsAnchored = True``
+- ``Asm.AnchorPart(occ)`` : ``occ.IsAnchored = True``
 
 There is no built-in "translate then rotate" vs "rotate then translate"
-flag - compose transforms by multiplying matrices yourself if you need
+flag; compose transforms by multiplying matrices yourself if you need
 exact parity with the AlibreScript ``Reverse`` argument.
 """
 from __future__ import annotations
@@ -35,10 +35,10 @@ def main() -> None:
     path_obj: object = str(part_path)
     ident = gf.CreateIdentityTransform()
     # Occurrences.Add takes a `ref object`; pythonnet returns
-    # (occurrence, modified_arg) - unpack the first.
+    # (occurrence, modified_arg); unpack the first.
     occ1 = asm.RootOccurrence.Occurrences.Add(path_obj, ident)[0]
 
-    # Duplicate at (5,10,15) - AlibreX uses centimetres
+    # Duplicate at (5,10,15); AlibreX uses centimetres
     trans = gf.CreateTranslationTransformByXYZ(0.5, 1.0, 1.5)
     occ2 = asm.RootOccurrence.Occurrences.Add(path_obj, trans)[0]
 

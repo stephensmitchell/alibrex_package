@@ -1,4 +1,4 @@
-"""Sketch-2D demo 01 - apply each geometric constraint type once.
+"""Sketch-2D demo 01: apply each geometric constraint type once.
 
 Walks through the most common ``ADSketchConstraintType`` values
 (horizontal, vertical, parallel, perpendicular, coincident, equal)
@@ -51,10 +51,10 @@ def main() -> int:
     before = cs.Count
     print(f"Constraints before: {before}")
 
-    # Note: perpendicular between l0 (made horizontal) and l2 (made
-    # vertical) would be redundant - Alibre rejects redundant adds.
-    # We demonstrate it separately on lines that aren't already
-    # H/V-constrained in sk2_07.
+    # Perpendicular between l0 (made horizontal) and l2 (made vertical)
+    # would be redundant; Alibre rejects redundant adds. sk2_07
+    # demonstrates it separately on lines that aren't already
+    # H/V-constrained.
     cases = [
         ("HORIZONTAL", ADSketchConstraintType.AD_CONSTRAINT_HORIZONTAL, [0]),
         ("VERTICAL",   ADSketchConstraintType.AD_CONSTRAINT_VERTICAL,   [1]),

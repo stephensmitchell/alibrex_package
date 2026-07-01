@@ -1,4 +1,4 @@
-"""Example 16 - loft between two cross-section sketches.
+"""Example 16: loft between two cross-section sketches.
 
 Creates an offset reference plane parallel to XY, sketches a square on XY
 and a smaller square on the offset plane, then lofts them. Exercises:

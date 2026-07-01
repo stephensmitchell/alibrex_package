@@ -1,8 +1,8 @@
-"""Example 23 - build a 3D sketch (free-space curves).
+"""Example 23: build a 3D sketch (free-space curves).
 
-3D sketches live in part-world coordinates, not on a 2D plane. Useful as
-sweep paths and for laying out reference geometry that does not belong to
-any single plane.
+3D sketches live in part-world coordinates, not on a 2D plane. Use them as
+sweep paths and to lay out reference geometry that belongs to no single
+plane.
 
 Covers: IAD3DSketches.Add3DSketch, IAD3DSketchFigures.AddPoint, AddLine,
 AddCircularArcByCenterStartEnd, AddPolyline, AddBsplineByInterpolation.
@@ -19,7 +19,7 @@ def main() -> None:
     part: IADPartSession = root.CreateEmptyPart("Sketch3D_Smoke", False)
 
     sketch = part.Sketches3D.Add3DSketch("FreeSpace")
-    # AlibreX 29 requires BeginChange/EndChange around figure additions -
+    # AlibreX 29 requires BeginChange/EndChange around figure additions,
     # 3D sketches included.
     sketch.BeginChange()
     try:
@@ -37,7 +37,7 @@ def main() -> None:
             0.0, 1.0, 2.0,     # end (90 degrees)
         )
 
-        # Polyline through 4 points - flat [x0,y0,z0,x1,y1,z1,...]
+        # Polyline through 4 points: flat [x0,y0,z0,x1,y1,z1,...]
         poly_pts = float_array([
             4.0, 0.0, 0.0,
             4.0, 2.0, 0.0,

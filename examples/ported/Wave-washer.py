@@ -7,7 +7,7 @@ profile on a perpendicular plane at its start, and sweeps the profile
 along the path. Same options form as the original via tkinter.
 
 The original's ``P.AddPlane(name, normal_vector, anchor_point)`` has no
-direct AlibreX equivalent - we use ``DesignPlanes.CreateBy3Points`` with
+direct AlibreX equivalent. We use ``DesignPlanes.CreateBy3Points`` with
 three coplanar points whose plane has the desired normal.
 """
 from __future__ import annotations

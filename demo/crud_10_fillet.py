@@ -1,4 +1,4 @@
-"""CRUD demo 10 - constant-radius fillet on every edge of a box.
+"""CRUD demo 10: constant-radius fillet on every edge of a box.
 
 A box has 12 edges. Filleting all of them yields a body with:
   - more faces than the original (each edge becomes a curved face).
@@ -29,7 +29,7 @@ def main() -> int:
     faces_before = part.Bodies.Item(0).Faces.Count
     edges_before = part.Bodies.Item(0).Edges.Count
 
-    # Don't cache body - S2 in KNOWN_ISSUES.md (body proxies go stale).
+    # Don't cache body: S2 in KNOWN_ISSUES.md (body proxies go stale).
     edges = part.Bodies.Item(0).Edges
     edges_col = root.NewObjectCollector()
     for i in range(edges.Count):

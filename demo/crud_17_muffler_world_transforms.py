@@ -1,9 +1,8 @@
-"""CRUD demo 17 - read every leaf occurrence's WorldTransform on the muffler.
+"""CRUD demo 17: read every leaf occurrence's WorldTransform on the muffler.
 
 Walks the muffler tree, reads ``WorldTransform`` for each leaf part,
 extracts the translation component, and prints a position summary.
-This is the kind of pass you'd write to populate a BOM / CSV / dump for
-downstream tooling.
+This pattern populates a BOM / CSV / dump for downstream tooling.
 
 Pass criteria:
   - Every leaf reports a usable WorldTransform.

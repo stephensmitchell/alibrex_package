@@ -1,4 +1,4 @@
-"""CRUD demo 04 - extrude a box, query topology, verify Euler counts.
+"""CRUD demo 04: extrude a box, query topology, verify Euler counts.
 
 For a solid rectangular box the topology is known exactly:
   - 1 body

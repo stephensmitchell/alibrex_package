@@ -85,7 +85,7 @@ def main() -> None:
             cy = x * math.sin(rot1) + y * math.cos(rot1)
             points.append((cx, cy))
         # Top arc (outside radius) from right flank end to left flank start
-        # Approximate with a straight chord - visually fine at SAMPLES_PER_FLANK ≥ 8
+        # Approximate with a straight chord; visually fine at SAMPLES_PER_FLANK ≥ 8
         rot2 = centre + half_tooth
         # Left flank, mirrored
         for x, y in _involute_flank(r_b, theta_o, theta_r, -1.0):

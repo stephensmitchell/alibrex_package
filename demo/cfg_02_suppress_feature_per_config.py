@@ -1,12 +1,11 @@
-"""Configuration demo 02 - feature suppressed in one config, alive in another.
+"""Configuration demo 02: feature suppressed in one config, alive in another.
 
 Builds a part with two features (a base block and a small extruded
 "bump" boss). Adds two configurations; in the second one, suppresses
-the bump. Then switches between the two and verifies the feature
-count visible on the body changes.
+the bump. Switches between the two and verifies the visible feature
+count on the body changes.
 
-This is the canonical "make a part with optional features per config"
-workflow.
+Canonical "make a part with optional features per config" workflow.
 
 Pass criteria:
   - Both configurations exist.

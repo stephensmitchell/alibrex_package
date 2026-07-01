@@ -1,9 +1,9 @@
-"""Assembly demo 06 - suppress and unsuppress a constraint.
+"""Assembly demo 06: suppress and unsuppress a constraint.
 
 Builds a one-mate assembly, captures B's position with the constraint
 active, then flips ``IsSuppressed`` on the constraint and verifies B
-becomes free to drift back (or stays - depending on the kernel's
-behavior, the *attribute* should at least round-trip). Finally
+becomes free to drift back. Depending on the kernel's behavior B may
+stay put; the *attribute* should at least round-trip. Then
 unsuppresses again.
 
 Pass criteria:

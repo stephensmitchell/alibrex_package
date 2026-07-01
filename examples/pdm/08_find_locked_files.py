@@ -1,4 +1,4 @@
-"""PDM 08 - find every locked file across all projects in the safe.
+"""PDM 08: find every locked file across all projects in the safe.
 
 Recursively walks every project's folder tree and reports any file
 whose IsLocked flag is True. Useful for "who has X checked out?"
@@ -29,7 +29,7 @@ safe = safes.Item(0)
 print(f"Safe: {safe.Name!r}")
 print("Scanning all projects for locked files...\n")
 
-# Iterative DFS - no recursive function.
+# Iterative DFS, no recursive function.
 stack = []
 for i in range(safe.Projects.Count):
     proj = safe.Projects.Item(i)

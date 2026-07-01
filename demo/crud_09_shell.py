@@ -1,6 +1,6 @@
-"""CRUD demo 09 - shell a solid box from its top face.
+"""CRUD demo 09: shell a solid box from its top face.
 
-KNOWN ISSUE (observed in AlibreX 29, upstream - NOT a Python-side bug):
+KNOWN ISSUE (observed in AlibreX 29, upstream, NOT a Python-side bug):
     Alibre raises `COMException: Can't execute query. Object no longer
     exists in server` when AddShellFeature tries to dereference an IADFace
     passed through an IObjectCollector, even though the collector reports
@@ -8,7 +8,7 @@ KNOWN ISSUE (observed in AlibreX 29, upstream - NOT a Python-side bug):
 
     Reproduced from a stock VB.NET LINQPad query
     (T:\\0-code\\linqpad\\queries\\root\\9_ALIBRE\\shell-test.linq) that
-    uses the CLR's native COM marshalling - no Python proxy in the loop,
+    uses the CLR's native COM marshalling: no Python proxy in the loop,
     no MethodInfo.Invoke, no hand-rolled IDispatch handling. The face is
     fetched fresh by index right before Add, and Alibre can still lose
     the handle by the time AddShellFeature reads from the collector.
@@ -49,7 +49,7 @@ def main() -> int:
     faces_before = block.Faces.Count
 
     # Identify the top face by max average Z. Face proxies don't outlive
-    # the iteration in AlibreX 29 - track the *index* and re-fetch.
+    # the iteration in AlibreX 29: track the *index* and re-fetch.
     faces = block.Faces
     best_idx, best_z = -1, -1e9
     for i in range(faces.Count):
@@ -65,7 +65,7 @@ def main() -> int:
         print("[FAIL] could not find top face to shell")
         return 1
 
-    # Known marshalling issue - see module docstring. We *call* the API
+    # Known marshalling issue: see module docstring. We *call* the API
     # (proving it routes correctly) but expect it to raise the documented
     # "Object no longer exists in server" until the proxy is fixed.
     shell_error = None

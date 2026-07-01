@@ -1,4 +1,4 @@
-"""Example 25 - use part configurations with lock flags.
+"""Example 25: use part configurations with lock flags.
 
 Creates a part, adds two configurations (one locked, one unlocked), reads
 each `Locks` value as a bitmask of `ADConfigurationLockType`, and flips

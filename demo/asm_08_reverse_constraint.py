@@ -1,4 +1,4 @@
-"""Assembly demo 08 - same MATE constraint with isReversed=True flips offset side.
+"""Assembly demo 08: same MATE constraint with isReversed=True flips offset side.
 
 Compares two assemblies built from identical inputs except for the
 ``isReversed`` flag on the mate constraint. With ``isReversed=False``

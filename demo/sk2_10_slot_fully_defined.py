@@ -1,4 +1,4 @@
-"""Sketch-2D demo 10 - fully constrain a "slot" (2 lines + 2 semicircle arcs).
+"""Sketch-2D demo 10: fully constrain a "slot" (2 lines + 2 semicircle arcs).
 
 A slot is the classic CAD shape for bolt-clearance, key-ways, etc.:
 two parallel lines capped by two semicircle arcs. We fully define it
@@ -38,7 +38,7 @@ def main() -> int:
     root = connect()
     sk = part.Sketches.AddSketch(None, part.DesignPlanes.Item(0), "Slot")
 
-    # Sloppy initial sketch - the constraints / dimensions will rebuild it.
+    # Sloppy initial sketch. The constraints / dimensions rebuild it.
     sk.BeginChange()
     try:
         # Top line, bottom line, left arc (semicircle), right arc (semicircle).

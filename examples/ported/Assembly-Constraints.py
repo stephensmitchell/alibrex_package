@@ -14,8 +14,8 @@ Maps:
   identifying each plane on its occurrence
 
 Building ``IADTargetProxy`` instances requires the underlying AlibreX
-target-proxy API which is not exposed as a plain factory here, so the
-constraint creation is shown but commented out - adapt to your build.
+target-proxy API, which lacks a plain factory here, so the constraint
+creation is shown but commented out; adapt to your build.
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ def main() -> None:
     ident = gf.CreateIdentityTransform()
 
     # Add the same part twice. Occurrences.Add takes a `ref object` so
-    # pythonnet returns (occurrence, modified_arg) - unpack the first.
+    # pythonnet returns (occurrence, modified_arg); unpack the first.
     path_obj: object = str(part_path)
     occ1 = asm.RootOccurrence.Occurrences.Add(path_obj, ident)[0]
     occ2 = asm.RootOccurrence.Occurrences.Add(path_obj, ident)[0]
@@ -54,7 +54,7 @@ def main() -> None:
     #   asm.AssemblyConstraints.AddConstraint(
     #       target1, target2, ADAssemblyConstraintType.AD_MATE_TYPE, 0.0,
     #   )
-    # The exact target-proxy factory varies by Alibre build - adapt
+    # The exact target-proxy factory varies by Alibre build; adapt
     # against your local IADTargetProxy entry point.
 
 

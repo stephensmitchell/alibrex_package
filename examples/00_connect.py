@@ -1,4 +1,4 @@
-"""Example 00 - connect to a running Alibre Design instance.
+"""Example 00: connect to a running Alibre Design instance.
 
 Run with the venv:
     .venv\\Scripts\\python.exe python\\examples\\00_connect.py
@@ -21,7 +21,7 @@ def _safe(label: str, fn) -> None:
 def main() -> None:
     root = connect()
     print(f"Connected to Alibre {root.Version}\n")
-    # Most properties require an open document - the helpers below tolerate
+    # Most properties require an open document: the helpers below tolerate
     # the empty-state error you'll see when nothing is loaded yet.
     _safe("Open sessions",   lambda: root.Sessions.Count)
     _safe("Topmost session", lambda: root.TopmostSession.Name if root.TopmostSession else "(none)")

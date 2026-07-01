@@ -1,8 +1,8 @@
-"""Sketch-2D demo 11 - three arcs smoothly joined (tangent-continuous spline).
+"""Sketch-2D demo 11: three arcs smoothly joined (tangent-continuous spline).
 
 Builds three circular arcs whose endpoints are coincident and whose
 tangent vectors line up at each junction. The result is a
-``C1``-continuous curve made entirely of circular pieces - the kind of
+``C1``-continuous curve made entirely of circular pieces: the kind of
 shape you'd put inside a cam profile, ducting transition, or pipe bend.
 
 Pass criteria:

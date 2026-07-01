@@ -1,8 +1,7 @@
 r"""Close Alibre sessions left open by the demo/example scripts.
 
-Default behavior is intentionally conservative: only documents whose names
-match known demo prefixes or bundled muffler sample names are closed, and
-changes are discarded with ``Close(False)``.
+Closes only documents whose names match known demo prefixes or bundled
+muffler sample names, discarding changes with ``Close(False)``.
 
 Run:
     .venvv\Scripts\python.exe close_demo_sessions.py

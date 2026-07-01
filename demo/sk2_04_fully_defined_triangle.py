@@ -1,4 +1,4 @@
-"""Sketch-2D demo 04 - fully constrain a triangle by SSS (3 side lengths).
+"""Sketch-2D demo 04: fully constrain a triangle by SSS (3 side lengths).
 
 Builds a triangle from 3 lines, closes the loop with 3 coincidents,
 pins one vertex to the sketch origin + makes one side horizontal,
@@ -51,7 +51,7 @@ def main() -> int:
         # Pin the base's start to the origin and make the base horizontal.
         add([base.Start, sk.OriginPoint], ADSketchConstraintType.AD_CONSTRAINT_COINCIDENT)
         add([base], ADSketchConstraintType.AD_CONSTRAINT_HORIZONTAL)
-        # SSS - 3 length dimensions.
+        # SSS: 3 length dimensions.
         sk.Dimensions.PlaceLinearDimension(base, 4.0)
         sk.Dimensions.PlaceLinearDimension(leg,  3.0)
         sk.Dimensions.PlaceLinearDimension(hyp,  5.0)
@@ -67,7 +67,7 @@ def main() -> int:
     print(f"Final vertices: {pts_sorted}")
     print(f"Dimensions: {sk.Dimensions.Count}")
 
-    # Expected: (0,0), (4,0), and one of (0, +3) / (0, -3) - Alibre may
+    # Expected: (0,0), (4,0), and one of (0, +3) / (0, -3); Alibre may
     # choose either side of the X-axis.
     has_origin = (0.0, 0.0) in pts_sorted
     has_base_end = (4.0, 0.0) in pts_sorted

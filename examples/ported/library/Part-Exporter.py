@@ -4,12 +4,12 @@ Walks a source folder for ``*.AD_PRT`` files, opens each, exports to the
 chosen format, and closes. Inputs come from a tkinter form. Export
 formats map straight onto AlibreX:
 
-- STEP203  - ``ExportAP203``
-- STEP214  - ``ExportAP214``
-- STL      - ``ExportSTL`` (defaults from AlibreScript)
-- IGES     - ``ExportIGES``
-- SAT      - ``ExportSAT(path, version=18, saveColor=True)`` - uses ``ExportSAT2``
-- BMP      - ``SaveCurrentViewSnapshot``
+- STEP203: ``ExportAP203``
+- STEP214: ``ExportAP214``
+- STL: ``ExportSTL`` (defaults from AlibreScript)
+- IGES: ``ExportIGES``
+- SAT: ``ExportSAT(path, version=18, saveColor=True)``, uses ``ExportSAT2``
+- BMP: ``SaveCurrentViewSnapshot``
 """
 from __future__ import annotations
 

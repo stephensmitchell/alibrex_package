@@ -1,4 +1,4 @@
-"""Parameter demo 02 - equation chain A -> B -> C.
+"""Parameter demo 02: equation chain A -> B -> C.
 
 Creates three free-standing parameters where each is driven by the
 previous via an equation. Changing the head of the chain should
@@ -9,8 +9,8 @@ propagate through both equations.
   C: equation = B + 1
 
 Pass criteria:
-  - After A=3.0  -  B=6.0, C=7.0.
-  - After A=10.0 -  B=20.0, C=21.0.
+  - After A=3.0: B=6.0, C=7.0.
+  - After A=10.0: B=20.0, C=21.0.
   - Equations on B and C are preserved across the value change.
 """
 from __future__ import annotations
