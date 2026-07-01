@@ -3,8 +3,8 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/default-reference-geometry
 
 Identical to ``Default-Reference-Geometry.py`` in the source repo
-(both point at the same help URL). This file just re-runs the other
-one when executed directly.
+(both point at the same help URL). Running it directly re-runs the
+other file.
 """
 from __future__ import annotations
 

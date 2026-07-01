@@ -1,4 +1,4 @@
-"""Parameter demo 04 - Remove() a parameter and verify it's gone.
+"""Parameter demo 04: Remove() a parameter and verify it's gone.
 
 Creates three free parameters, removes the middle one via
 ``IADParameter.Remove()``, and re-counts. The remaining two should

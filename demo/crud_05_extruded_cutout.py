@@ -1,4 +1,4 @@
-"""CRUD demo 05 - extruded boss + extruded cutout, verify body topology.
+"""CRUD demo 05: extruded boss + extruded cutout, verify body topology.
 
 Pipeline: block (60 x 40 x 20) -> cut a 20 x 20 hole through the top.
 
@@ -30,7 +30,7 @@ def main() -> int:
     extrude_block(part, 6.0, 4.0, 2.0, "Base")
     fc_after_boss = part.FeatureCount
 
-    # Cut a 2x2 square hole through the top - sketch lives on top face's plane (XY+depth).
+    # Cut a 2x2 square hole through the top: sketch lives on top face's plane (XY+depth).
     # Easiest: sketch on the top design plane offset upwards isn't necessary; sketch on XY
     # then cut downward via reversed normal. Simpler: cut from XY through full block depth.
     xy = part.DesignPlanes.Item(0)

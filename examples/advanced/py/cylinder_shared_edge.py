@@ -8,7 +8,7 @@ revolved cylinder so it always has shareable face pairs to inspect.
 Differences from the original:
   * AlibreScript's ``GetFace("Face<1>")`` is replaced by index access on
     ``part.Bodies.Item(0).Faces``.
-  * The example pairs the first two faces by default - pass
+  * The example pairs the first two faces by default. Pass
     ``--faces I J`` to choose other indices.
 """
 from __future__ import annotations

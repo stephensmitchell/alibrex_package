@@ -1,14 +1,14 @@
 """Port of "Reference Geometry Showcase" AlibreScript example.
 
 Builds a 40x20x10 block, then creates two reference planes:
-  1. ``PlaneAngleXY`` - rotated 30 degrees from XY around the Y-axis.
-  2. ``PlaneFrom3Points`` - defined by three corner points of the block.
+  1. ``PlaneAngleXY``: rotated 30 degrees from XY around the Y-axis.
+  2. ``PlaneFrom3Points``: defined by three corner points of the block.
 
 Differences from the original:
   * AlibreScript's ``AddPlane(name, plane, axis, angle)`` becomes
     alibrex's ``IADDesignPlanes.CreateAtAngleToPlane``.
   * AlibreScript's ``AddPlane(name, [x1,y1,z1], [x2,y2,z2], [x3,y3,z3])``
-    becomes ``IADDesignPlanes.CreateBy3Points`` - points must be real
+    becomes ``IADDesignPlanes.CreateBy3Points``: points must be real
     ``IADPoint`` objects, built via the session's GeometryFactory.
   * AlibreScript's ``AddAxis(name, plane1, plane2)`` doesn't have a
     direct alibrex equivalent on the design-axes collection; we skip
@@ -46,9 +46,9 @@ def main() -> int:
     print(f"Step 2: created '{angled_plane.Name}' at 30 degrees to XY around Y-axis.")
 
     # Step 3: Plane from three non-coplanar corner points.
-    # Note: `IADDesignPlanes.CreateBy3Points` in some AlibreX 29 builds raises
-    # "Cannot create plane with Collinear points" regardless of the actual
-    # input points - verified by trying half a dozen obviously-non-collinear
+    # `IADDesignPlanes.CreateBy3Points` in some AlibreX 29 builds raises
+    # "Cannot create plane with Collinear points" regardless of the
+    # input points. Verified by trying half a dozen obviously-non-collinear
     # triples. Treated as an upstream bug for now; the call is wrapped in
     # try/except so this script still demonstrates the working pieces.
     try:

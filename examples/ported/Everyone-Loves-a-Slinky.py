@@ -3,8 +3,8 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/everyone-loves-a-slinky
 
 Generates the slinky helix as a 3D B-spline through 437 interpolation
-points sampled from the original parametric formula. Dialog inputs are
-collected via tkinter (see ``_dialogs.py``).
+points sampled from the original parametric formula. tkinter collects
+the dialog inputs (see ``_dialogs.py``).
 """
 from __future__ import annotations
 

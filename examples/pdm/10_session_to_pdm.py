@@ -1,4 +1,4 @@
-"""PDM 10 - cross-reference an open Alibre session with PDM.
+"""PDM 10: cross-reference an open Alibre session with PDM.
 
 For each open document in the active Alibre instance, check whether
 it's stored in a known PDM repository and report its file path and

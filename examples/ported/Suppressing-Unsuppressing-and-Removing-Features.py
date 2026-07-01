@@ -6,10 +6,10 @@ Original: https://help.alibre.com/articles/#!alibre-help-v28/supressing-unsupres
 Builds a cube + through-hole, then exercises feature suppression and
 deletion. Mapping:
 
-- ``P.SuppressFeature('Cube')`` - ``part.Features.Item('Cube').IsSuppressed = True``
-- ``P.UnsuppressFeature(feat)`` - ``feat.IsSuppressed = False``
-- ``P.RemoveFeature('Hole')`` - ``part.Features.Item('Hole').Delete()``
-- ``P.RemoveSketch(sketch)``  - ``sketch.Delete()``
+- ``P.SuppressFeature('Cube')``: ``part.Features.Item('Cube').IsSuppressed = True``
+- ``P.UnsuppressFeature(feat)``: ``feat.IsSuppressed = False``
+- ``P.RemoveFeature('Hole')``: ``part.Features.Item('Hole').Delete()``
+- ``P.RemoveSketch(sketch)``: ``sketch.Delete()``
 """
 from __future__ import annotations
 
@@ -35,12 +35,12 @@ def main() -> None:
     part = root.CreateEmptyPart("Example Part", False)
     xy = part.DesignPlanes.Item(0)
 
-    # 10 mm cube - 1 cm
+    # 10 mm cube: 1 cm
     cube_sk = part.Sketches.AddSketch(None, xy, "CubeProfile")
     cube_sk.Figures.AddRectangle(0.0, 0.0, 1.0, 1.0)
     cube = _extrude(part, cube_sk, "Cube", 1.0, is_cut=False)
 
-    # 2..8 mm pocket - 0.2..0.8 cm
+    # 2..8 mm pocket: 0.2..0.8 cm
     hole_sk = part.Sketches.AddSketch(None, xy, "HoleProfile")
     hole_sk.Figures.AddRectangle(0.2, 0.2, 0.8, 0.8)
     _extrude(part, hole_sk, "Hole", 1.0, is_cut=True)

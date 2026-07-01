@@ -1,4 +1,4 @@
-"""Example 13 - import a STEP file and inspect what was loaded."""
+"""Example 13: import a STEP file and inspect what was loaded."""
 from __future__ import annotations
 
 import sys

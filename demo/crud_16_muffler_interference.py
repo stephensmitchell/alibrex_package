@@ -1,4 +1,4 @@
-"""CRUD demo 16 - run a CheckInterference on the muffler assembly.
+"""CRUD demo 16: run a CheckInterference on the muffler assembly.
 
 Calls ``IADAssemblySession.CheckInterference(None, None)`` which returns
 an interference collection (and a second item depending on the build).

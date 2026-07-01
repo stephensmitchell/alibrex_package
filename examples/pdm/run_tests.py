@@ -1,11 +1,11 @@
 """Run every PDM example and write a transcript + summary to test-output.txt.
 
 PDM allows only one external API client at a time. The examples each call
-ConnectToPDM, so if their connections are not released the single-client
-lock stays held ("Another client instance is already accessing the
-Server"). This runner executes every example inside a SINGLE process and,
-crucially, calls Logout() on each example's connection afterward (the
-examples name it ``conn``) so the next example starts on a free lock.
+ConnectToPDM, so if their connections stay open the single-client lock
+stays held ("Another client instance is already accessing the Server").
+This runner executes every example inside a SINGLE process and calls
+Logout() on each example's connection afterward (the examples name it
+``conn``) so the next example starts on a free lock.
 
 Run it with the interpreter that has alibrex installed, e.g.:
     py -3.13-64 run_tests.py
@@ -28,7 +28,7 @@ PDM_URL = "http://localhost:8099/"
 
 MAX_ATTEMPTS = 5      # per-example retries when the PDM lock is contended
 LOCK_WAIT = 12        # seconds between those retries
-SETTLE = 4            # seconds after Logout - PDM frees the session async,
+SETTLE = 4            # seconds after Logout: PDM frees the session async,
                       # so reconnecting too soon races into a stuck lock
 LOCK_MARKER = "accessing the Server"
 
@@ -40,7 +40,7 @@ if str(HERE) not in sys.path:
 def logout(conn) -> None:
     """Release a PDM connection and give the server time to free it.
 
-    Logout() returns before the server actually releases the single-client
+    Logout() returns before the server releases the single-client
     session, so we collect the COM object and pause to let that complete.
     """
     if conn is not None:
@@ -74,8 +74,8 @@ def preflight() -> str:
 def run_example(path: Path) -> tuple[str, str]:
     """Run one example in-process, then Logout its connection.
 
-    PASS - ran clean; INFO - clean SystemExit (e.g. "no files");
-    LOCK - transient PDM lock (caller may retry); FAIL - real crash.
+    PASS: ran clean; INFO: clean SystemExit (e.g. "no files");
+    LOCK: transient PDM lock (caller may retry); FAIL: real crash.
     """
     ns: dict = {"__name__": "__main__", "__file__": str(path)}
     code = compile(path.read_text(encoding="utf-8"), str(path), "exec")

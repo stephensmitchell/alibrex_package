@@ -54,8 +54,8 @@ if missing:
 # --- 3. AlibreX.dll discovery ----------------------------------------------
 print("\n[3] AlibreX.dll discovery")
 
-# Bypass the import-time running check so we can inspect the DLL path
-# even when Alibre isn't open.
+# Bypass the import-time running check to inspect the DLL path even
+# when Alibre isn't open.
 os.environ["ALIBREX_SKIP_RUNNING_CHECK"] = "1"
 
 try:

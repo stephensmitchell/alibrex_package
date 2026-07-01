@@ -4,9 +4,9 @@ Original: https://help.alibre.com/articles/#!alibre-help-v28/servo-cam
 
 Builds a slotted oval base, an annular hub, then cuts the slots through
 both. AlibreScript values were in millimetres; converted to centimetres.
-A face is identified by index here (``Bodies.Item(0).Faces``) rather
-than by ``GetFace('Face<13>')`` since AlibreX has no name-based lookup
-for topology.
+Face lookup uses an index (``Bodies.Item(0).Faces``) rather than
+``GetFace('Face<13>')``, since AlibreX has no name-based lookup for
+topology.
 """
 from __future__ import annotations
 
@@ -36,11 +36,11 @@ def _stadium(figs, length: float, h: float) -> None:
 def _slot(figs, x_outer: float, x_inner: float, h: float) -> None:
     """Draw a slot: top + bottom straight lines, semicircular caps at each end.
 
-    ``CircularArcByCenterStartEnd`` sweeps CCW from start to end, so the
-    cap orientation has to be picked from the slot's side. On the +X
+    ``CircularArcByCenterStartEnd`` sweeps CCW from start to end, so pick
+    the cap orientation from the slot's side. On the +X
     half, the outer cap bulges to +X (start at -h/2, end at +h/2). On
     the -X half, the same start/end ordering bulges the wrong way
-    (toward the origin) - flip start/end so the cap still bulges away.
+    (toward the origin): flip start/end so the cap still bulges away.
     """
     figs.AddLine(x_inner, -h/2,  x_outer, -h/2)
     figs.AddLine(x_inner,  h/2,  x_outer,  h/2)
@@ -76,8 +76,8 @@ def main() -> None:
     _extrude(part, base, "Base", baseheight, is_cut=False)
 
     # Top face = highest-Z face on body[0]. Don't cache the body proxy
-    # (S2). GetExtents has two out params (S-NA - KNOWN_ISSUES section
-    # P1) - pass None placeholders and unpack the returned tuple.
+    # (S2). GetExtents has two out params (S-NA, KNOWN_ISSUES section
+    # P1); pass None placeholders and unpack the returned tuple.
     faces = part.Bodies.Item(0).Faces
     best_idx, best_z = -1, -1e9
     for i in range(faces.Count):

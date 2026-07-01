@@ -1,8 +1,8 @@
-"""Tiny shared helpers for the CRUD demos.
+"""Shared helpers for the CRUD demos.
 
-Pattern: demos create their own document by default so they do not mutate
-whatever the user currently has open in Alibre. Set
-``ALIBREX_DEMOS_USE_ACTIVE=1`` to opt into the older active-document workflow.
+Demos create their own document by default so they do not mutate whatever
+the user currently has open in Alibre. Set ``ALIBREX_DEMOS_USE_ACTIVE=1``
+to opt into the older active-document workflow.
 """
 from __future__ import annotations
 
@@ -165,7 +165,7 @@ def report(checks):
 
 
 # ---------------------------------------------------------------------------
-# Sketch / feature primitives - wrap the AlibreX 29 quirk that figure
+# Sketch / feature primitives: wrap the AlibreX 29 quirk that figure
 # additions must happen between sketch.BeginChange() and sketch.EndChange().
 # ---------------------------------------------------------------------------
 
@@ -222,7 +222,7 @@ def save_part_as(part, folder: str, name: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Bundled muffler assembly - a real, multi-level industrial part used by the
+# Bundled muffler assembly: a real, multi-level industrial part used by the
 # crud_13.. demos. Stays read-only so the demos can run repeatedly without
 # corrupting the file.
 # ---------------------------------------------------------------------------
@@ -270,7 +270,7 @@ def find_occurrence_by_name(root_occ, name: str):
 def stl_size(part, base_path: str) -> int:
     """Export STL and return its size in bytes (0 on failure).
 
-    A non-zero STL means the BREP tessellated cleanly - a strong validity
+    A non-zero STL means the BREP tessellated cleanly, a strong validity
     check on top of feature-count assertions.
     """
     path = base_path + ".stl"

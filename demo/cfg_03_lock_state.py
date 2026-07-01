@@ -1,9 +1,9 @@
-"""Configuration demo 03 - set / read lock-state flags on a configuration.
+"""Configuration demo 03: set / read lock-state flags on a configuration.
 
 ``IADConfiguration.Locks`` is a flag enum (``ADConfigurationLockType``)
 controlling what kinds of edits Alibre allows in a given configuration.
 Building an arbitrary mask requires the pythonnet unchecked-enum
-constructor (``ADConfigurationLockType(mask, True)``) - bare
+constructor (``ADConfigurationLockType(mask, True)``). Bare
 ``ADConfigurationLockType(mask)`` raises if ``mask`` isn't a defined
 member.
 

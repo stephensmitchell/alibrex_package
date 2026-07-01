@@ -2,7 +2,7 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/pocket-hole-creator
 
-Same pattern as ``Joint-Creator.py`` - relies on
+Same pattern as ``Joint-Creator.py``: relies on
 ``Sketch.StartFaceMapping`` / ``PointtoGlobal`` / ``GlobaltoPoint`` and
 ``WindowsInputTypes.Edge`` / ``Face`` for interactive picks, none of
 which AlibreX exposes.

@@ -1,7 +1,7 @@
 """Filename alias for the typo'd source script.
 
 See ``Suppressing-Unsuppressing-and-Removing-Features.py`` for the port;
-this file just runs that one when executed directly.
+this file runs that one when executed directly.
 """
 import runpy
 import sys

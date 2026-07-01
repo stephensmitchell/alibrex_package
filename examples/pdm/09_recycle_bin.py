@@ -1,13 +1,12 @@
-"""PDM 09 - inspect the safe's recycle bin.
+"""PDM 09: inspect the safe's recycle bin.
 
-The recycle bin holds soft-deleted items. Unlike a plain folder, an
-IADPDMSafeRecycleBin only exposes Count / Item(i) - it has no FileItems.
-Each top-level Item is an organizing folder (e.g. "By Type"); the deleted
-files live inside those folders, so we wrap each item as an IADPDMFolder
-and walk it recursively.
+The recycle bin holds soft-deleted items. An IADPDMSafeRecycleBin exposes
+only Count / Item(i); it has no FileItems. Each top-level Item is an
+organizing folder (e.g. "By Type"), and the deleted files live inside
+those folders. Wrap each item as an IADPDMFolder and walk it recursively.
 
 The bin's Item(i) is typed as Object, so AlibreX hands back a raw COM
-object that the bridge can't auto-wrap; the shared as_folder() helper
+object that the bridge can't auto-wrap. The shared as_folder() helper
 (see _pdm_util.py) casts it to a typed IADPDMFolder.
 """
 from alibrex import connect

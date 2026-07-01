@@ -1,15 +1,15 @@
-"""Sketch-2D demo 05 - change a dimension parameter, geometry resizes.
+"""Sketch-2D demo 05: change a dimension parameter, geometry resizes.
 
 Builds the fully-constrained rectangle from sk2_02, then mutates the
 width dimension's *parameter* via the parameter-transaction API.
 Because every other DOF is pinned, the corners shift in lockstep with
 the new width.
 
-This is the canonical "parametric design" workflow:
+The canonical "parametric design" workflow:
 
     1. Build geometry fully constrained.
     2. Expose dimensions as named parameters.
-    3. Edit parameters - geometry updates everywhere it's used.
+    3. Edit parameters: geometry updates everywhere it's used.
 
 Pass criteria:
   - After setting width = 10.0, the right-side corners' X are 10.0.

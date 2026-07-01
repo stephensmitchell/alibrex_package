@@ -1,4 +1,4 @@
-"""Profile demo 02 - sketch + extrude four wood-trim profiles.
+"""Profile demo 02: sketch + extrude four wood-trim profiles.
 
 Builds a part with four separate wood-trim cross-sections extruded
 into short trim pieces. Sections spaced along X so they don't overlap.
@@ -6,7 +6,7 @@ into short trim pieces. Sections spaced along X so they don't overlap.
 Pass criteria:
   - 4 features created.
   - STL export > 5 KB (smaller than the steel set since these are open
-    profiles that the kernel may or may not be able to make solid).
+    profiles that the kernel may not make solid).
   - Each profile produced at least one face.
 """
 from __future__ import annotations

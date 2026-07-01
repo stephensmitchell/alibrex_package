@@ -1,9 +1,9 @@
-"""Configuration demo 04 - enumerate every configuration on a part.
+"""Configuration demo 04: enumerate every configuration on a part.
 
 Adds several configurations with assorted lock states, then iterates
 the collection and prints each one's name, ID, and decoded lock flags.
-This is the kind of pass you'd write to dump a part's full
-configuration matrix for documentation / PDM ingestion.
+Dumps a part's full configuration matrix for documentation / PDM
+ingestion.
 
 Pass criteria:
   - All added configurations appear in the iteration.
@@ -47,7 +47,7 @@ def main() -> int:
         True,
     )
 
-    # Re-fetch the collection - it's a snapshot.
+    # Re-fetch the collection: it's a snapshot.
     configs = part.Configurations
     print(f"Configurations on '{part.Name}' ({configs.Count}):")
     seen_names = []

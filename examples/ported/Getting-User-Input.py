@@ -3,8 +3,8 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/getting-user-input
 
 The original prompts for ``Width``, ``Height``, and ``Depth`` one at a
-time via ``Read()`` (console input). A single form dialog is friendlier;
-we also keep the millimetre semantics from the original by collecting
+time via ``Read()`` (console input). A single form dialog is friendlier.
+It keeps the original's millimetre semantics by collecting
 mm and dividing by 10 before handing values to AlibreX.
 """
 from __future__ import annotations

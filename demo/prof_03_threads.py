@@ -1,10 +1,9 @@
-"""Profile demo 03 - sketch four thread-tooth cross-sections.
+"""Profile demo 03: sketch four thread-tooth cross-sections.
 
 Drops four thread teeth (UN/metric, ACME, square, buttress) into a
-single sketch, side by side along X. No extrusion - this demo shows
-the tooth-profile shapes so you can confirm the geometry by eye in
-Alibre. Useful as a reference when authoring sweep paths for actual
-threading.
+single sketch, side by side along X. No extrusion. The tooth-profile
+shapes let you confirm the geometry by eye in Alibre. Use as a
+reference when authoring sweep paths for actual threading.
 
 Pass criteria:
   - Sketch contains the expected number of figures (3 + 4 + 6 + 4 = 17

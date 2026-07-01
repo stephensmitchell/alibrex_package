@@ -3,7 +3,7 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/polygon-incircle
 
 Sketches a regular *n*-gon whose inscribed circle has the given diameter,
-then extrudes it. AlibreScript has ``S.AddPolygon(cx,cy,d,n,False)`` -
+then extrudes it. AlibreScript has ``S.AddPolygon(cx,cy,d,n,False)``;
 AlibreX has no polygon helper, so we lay down *n* line segments
 explicitly.
 """

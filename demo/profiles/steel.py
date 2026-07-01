@@ -3,20 +3,20 @@
 Each function takes ``(sketch, **params)`` and emits the figures
 representing the cross-section's outline. Coordinates are placed
 directly (no constraints needed) so the section is implicitly fully
-defined. Caller is responsible for wrapping in BeginChange/EndChange
-if multiple sections are added to the same sketch.
+defined. The caller wraps in BeginChange/EndChange when adding
+multiple sections to the same sketch.
 
 All dimensions in centimetres. Use the ``mm()`` helper in
 ``profiles.__init__`` to feed mm-spec dimensions.
 
 Sections supplied:
-  - i_beam(...)       - wide-flange I / W shape.
-  - channel(...)      - C-section.
-  - angle(...)        - equal- or unequal-leg L-section.
-  - rhs(...)          - rectangular hollow section.
-  - shs(...)          - square hollow section (specialisation of rhs).
-  - chs(...)          - circular hollow section (round pipe).
-  - tee(...)          - T-section.
+  - i_beam(...)       : wide-flange I / W shape.
+  - channel(...)      : C-section.
+  - angle(...)        : equal- or unequal-leg L-section.
+  - rhs(...)          : rectangular hollow section.
+  - shs(...)          : square hollow section (specialisation of rhs).
+  - chs(...)          : circular hollow section (round pipe).
+  - tee(...)          : T-section.
 """
 from __future__ import annotations
 
@@ -57,7 +57,7 @@ def i_beam(sketch, *, h: float, b: float, tw: float, tf: float,
 def channel(sketch, *, h: float, b: float, tw: float, tf: float,
             cx: float = 0.0, cy: float = 0.0) -> None:
     """C-channel section. Opening faces +X. Origin at the centroid of the
-    bounding rectangle for convenience."""
+    bounding rectangle."""
     half_h = h / 2.0
     pts = [
         (cx,         cy - half_h),

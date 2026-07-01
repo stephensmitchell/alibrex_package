@@ -4,11 +4,11 @@ Profile-sketch generators used as sweep or revolve profiles for pipe
 elbows, reducers, flanges, and so on. All distances in centimetres.
 
 Profiles:
-  - pipe_annulus(...)   - outer circle + inner circle (sweep profile
+  - pipe_annulus(...)   : outer circle + inner circle (sweep profile
     for a constant-wall pipe).
-  - reducer_half(...)   - half-section profile of an axisymmetric
+  - reducer_half(...)   : half-section profile of an axisymmetric
     reducer; revolve 360° around the X-axis to make a reducer body.
-  - flange_face(...)    - half-section profile of a slip-on flange face
+  - flange_face(...)    : half-section profile of a slip-on flange face
     (without bolt holes); revolve 360°.
 """
 from __future__ import annotations

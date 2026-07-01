@@ -3,7 +3,7 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/profile-and-sweep-path
 
 The AlibreScript original only sketches the profile and the path; it
-does not actually call ``AddSweptBoss``. This port matches that
+does not call ``AddSweptBoss``. This port matches that
 behaviour and prints the resulting sketch counts so the geometry can be
 inspected. (See `python/examples/15_sweep.py` for the full sweep.)
 """

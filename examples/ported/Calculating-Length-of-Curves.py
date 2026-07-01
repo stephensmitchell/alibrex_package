@@ -2,7 +2,7 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/calculating-length-of-curves
 
-Pure-math example - no AlibreX interaction. The original imported
+Pure-math example, no AlibreX interaction. The original imported
 ``sympy``; this port does the same. Run with::
 
     pip install sympy

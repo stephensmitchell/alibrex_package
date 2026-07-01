@@ -1,4 +1,4 @@
-"""PDM 02 - list custom property definitions on a safe.
+"""PDM 02: list custom property definitions on a safe.
 
 Property definitions describe the metadata fields that file items can
 carry. Each definition has a value type (string, int, date, …) and a

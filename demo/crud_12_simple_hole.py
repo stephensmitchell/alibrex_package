@@ -1,4 +1,4 @@
-"""CRUD demo 12 - drill a through-all hole in a block, verify topology.
+"""CRUD demo 12: drill a through-all hole in a block, verify topology.
 
 Pipeline: block (6 x 4 x 2) -> sketch a single point on XY -> drill a
 0.5 cm-diameter through-all hole at that point.
@@ -41,7 +41,7 @@ def main() -> int:
 
     # The hole sketch sits on XY (z=0) which is the *bottom* of the +Z-extruded
     # block. The default direction (reversed=False) drills -Z, away from the
-    # block. Pass reversed=True so the bore actually goes into the part.
+    # block. Pass reversed=True so the bore goes into the part.
     part.Features.AddSimpleHole(
         pt_sk,
         0.0,                                       # depth (ignored for through-all)

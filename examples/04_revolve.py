@@ -1,4 +1,4 @@
-"""Example 04 - revolve a profile to make a cylindrical part.
+"""Example 04: revolve a profile to make a cylindrical part.
 
 Sketches a rectangular profile, then revolves it 360° around the Y axis
 to create a cylinder.

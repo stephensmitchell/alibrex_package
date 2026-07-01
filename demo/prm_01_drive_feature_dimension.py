@@ -1,4 +1,4 @@
-"""Parameter demo 01 - create a parameter and drive a feature dimension.
+"""Parameter demo 01: create a parameter and drive a feature dimension.
 
 Builds a block whose extrusion depth is bound at creation time to a
 named parameter (``"BlockDepth_Depth"``). Reads the parameter, sets a

@@ -1,4 +1,4 @@
-"""Example 01 - enumerate all open sessions and classify them by type."""
+"""Example 01: enumerate all open sessions and classify them by type."""
 from __future__ import annotations
 
 import sys

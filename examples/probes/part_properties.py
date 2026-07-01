@@ -18,7 +18,7 @@ def main() -> None:
 
     probe_object(part, "active part")
     # VersionComment trips an AccessViolation in native Alibre code on some
-    # parts - a real CLR-level crash that can bypass .NET's catch machinery.
+    # parts: a real CLR-level crash that can bypass .NET's catch machinery.
     probe_object(part.DesignProperties, "DesignProperties", skip={"VersionComment"})
     probe_collection(part.Parameters,      "Parameters",      limit=5)
     probe_collection(part.Configurations,  "Configurations",  limit=5)

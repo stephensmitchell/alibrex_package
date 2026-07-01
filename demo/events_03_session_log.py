@@ -1,4 +1,4 @@
-"""Events demo 03 - log session lifecycle and changes to a CSV.
+"""Events demo 03: log session lifecycle and changes to a CSV.
 
 Use case: keep an audit log of every document the user opens, edits, and
 closes during an Alibre session. Each event becomes one CSV row with a

@@ -6,7 +6,7 @@ Demonstrates a ``StringList`` (combobox) input with an ``on_change``
 callback that fires while the dialog is open and an ``on_select``
 callback that fires when the action button is clicked. As in the
 original, the value handed to the callbacks is the *index* into the
-choices list - look it up against ``DIAMETER_NAMES``.
+choices list: look it up against ``DIAMETER_NAMES``.
 """
 from __future__ import annotations
 

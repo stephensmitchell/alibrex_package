@@ -1,4 +1,4 @@
-"""CRUD demo 06 - revolve a profile to make a cylinder, verify topology.
+"""CRUD demo 06: revolve a profile to make a cylinder, verify topology.
 
 A solid cylinder has exactly 3 faces (top cap, bottom cap, lateral curved
 surface) and 2 circular edges (top + bottom rims).
@@ -8,9 +8,9 @@ Verifies:
   - 3 faces, 2 edges.
   - STL exports > 1 KB.
 
-Note: AlibreX 29's ``AddRevolvedBoss`` takes the revolve angle in
-**radians**, not degrees. Passing ``360.0`` produces a "near-full" tube
-(5 faces / 9 edges) - use ``math.radians(360)`` instead.
+AlibreX 29's ``AddRevolvedBoss`` takes the revolve angle in **radians**,
+not degrees. Passing ``360.0`` produces a "near-full" tube
+(5 faces / 9 edges); use ``math.radians(360)`` instead.
 """
 from __future__ import annotations
 

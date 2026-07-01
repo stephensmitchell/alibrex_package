@@ -3,14 +3,14 @@
 The original uses three methods on the 3D-sketch B-spline figure that
 AlibreX does **not** expose:
 
-- ``Bspline3D.SubdivideGetNormals(n)`` - sample the curve at *n* evenly
+- ``Bspline3D.SubdivideGetNormals(n)``: sample the curve at *n* evenly
   spaced parameter values and return the point + curve normal at each.
-- ``Bspline3D.GetPointAt(t)`` / ``GetNormalAt(t)`` - evaluate the curve
+- ``Bspline3D.GetPointAt(t)`` / ``GetNormalAt(t)``: evaluate the curve
   at parameter ``t ∈ [0, 1]``.
 
 ``IAD3DSketchBspline`` only exposes ``StartPoint``, ``EndPoint``,
 ``GetDefinition``, and ``GetData`` (control points + knots + weights).
-To implement this script you would:
+To implement this script:
 
 1. Read the B-spline control points + knot vector via ``GetData``.
 2. Evaluate the curve at *n* parameter values using the standard
@@ -21,7 +21,7 @@ To implement this script you would:
    ``DesignPlanes.CreateBy3Points`` and emit a copy of the pattern
    sketch's primitives onto it.
 
-That last step also needs a substitute for ``Sketch.CopyFrom`` - see
+That last step also needs a substitute for ``Sketch.CopyFrom``; see
 ``Sketch-Copier.py``'s stub.
 
 This file is intentionally a stub.

@@ -1,4 +1,4 @@
-"""Events demo 04 - automated round-trip test for subscribe / unsubscribe.
+"""Events demo 04: automated round-trip test for subscribe / unsubscribe.
 
 Doesn't need any user interaction. Verifies:
   - Subscribing through `em.OnX += handler` returns without error.
@@ -8,7 +8,7 @@ Doesn't need any user interaction. Verifies:
     cycles (no leaks of cookies / sinks).
 
 This is the "did the connection-point bridge wire up correctly" smoke test
-that doesn't depend on Alibre actually emitting events.
+that doesn't depend on Alibre emitting events.
 """
 from __future__ import annotations
 

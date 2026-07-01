@@ -1,4 +1,4 @@
-"""Sketch-2D demo 02 - fully constrain a rectangle.
+"""Sketch-2D demo 02: fully constrain a rectangle.
 
 Builds a rectangle from 4 line segments, then locks it down so every
 vertex is fixed:
@@ -8,7 +8,7 @@ vertex is fixed:
   - A FIX constraint on the bottom-left corner pins it to the origin.
   - Two linear dimensions: width on the bottom, height on the left.
 
-After all this, the rectangle's corners should sit at exact, known
+The rectangle's corners sit at exact, known
 positions regardless of how sloppy the original sketch coordinates were.
 
 Pass criteria:
@@ -117,8 +117,8 @@ def main() -> int:
 
     # Alibre auto-creates coincident constraints when consecutive line
     # endpoints already touch, so the 4 explicit coincidents are mostly
-    # no-ops. We assert "at least 4 net adds" and let the geometric
-    # result do the real verification.
+    # no-ops. This asserts "at least 4 net adds" and lets the geometric
+    # result do the verification.
     return report([
         ("constraints grew",              cs_after - cs_before >= 4),
         ("2 dimensions added",            dim_after - dim_before == 2),

@@ -1,6 +1,6 @@
 """Port of AlibreScript ``Utilities/Image to Python.py``.
 
-No Alibre interaction - emits a Python source file containing the
+No Alibre interaction. Emits a Python source file containing the
 binary contents of an image as a ``list`` of ``int``. Uses tkinter for
 file pickers (the AlibreScript ``File`` / ``SaveFile`` types).
 """

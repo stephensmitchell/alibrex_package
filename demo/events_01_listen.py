@@ -1,4 +1,4 @@
-"""Events demo 01 - subscribe to all Alibre lifecycle events and listen.
+"""Events demo 01: subscribe to all Alibre lifecycle events and listen.
 
 Pattern:
   - Subscribe via `em.OnX += handler` for each event.
@@ -10,7 +10,7 @@ How events fire in Alibre:
   - GUI-driven changes (the user opens/closes a document, modifies the
     model in the viewport, saves) fire events immediately.
   - Pure-API changes from the same Python script usually do NOT fire
-    events - Alibre suppresses them on its automation path to avoid
+    events: Alibre suppresses them on its automation path to avoid
     event storms while scripts are running.
 
 Run this script, then in Alibre: open a part / make a change / close it.

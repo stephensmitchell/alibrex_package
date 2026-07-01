@@ -1,4 +1,4 @@
-"""Example 20 - walk the BRep topology of the active part.
+"""Example 20: walk the BRep topology of the active part.
 
 For each solid body: report Lumps/Shells/Faces/Edges/Vertices counts and
 print the first few faces and edges with their underlying surface/curve

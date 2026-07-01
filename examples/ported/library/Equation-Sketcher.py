@@ -5,8 +5,8 @@ the result down as a B-spline on a chosen plane of the *active* part.
 
 Differences:
 
-- ``WindowsInputTypes.Plane`` (interactive plane pick) - integer index
-  into ``part.DesignPlanes``.
+- ``WindowsInputTypes.Plane`` (interactive plane pick) becomes an integer
+  index into ``part.DesignPlanes``.
 - The original ``Sk.AddBspline`` (variadic 2D points) becomes
   ``AddBsplineByInterpolation`` with a flat ``[x0,y0,x1,y1,...]`` array.
 - Needs ``pip install sympy``.

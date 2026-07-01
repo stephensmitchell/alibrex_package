@@ -1,6 +1,6 @@
-"""Events demo 02 - auto-export every part on OnSessionChange.
+"""Events demo 02: auto-export every part on OnSessionChange.
 
-A small but realistic pattern: whenever the user changes the active part
+A realistic pattern: whenever the user changes the active part
 in Alibre's UI, export the geometry to STL on disk. The exported file is
 stamped with the session name and the event count, so you can confirm
 multiple changes produce multiple exports.

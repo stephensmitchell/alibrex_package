@@ -1,4 +1,4 @@
-"""Example 06 - read and write parametric values.
+"""Example 06: read and write parametric values.
 
 Parameters are how Alibre stores driving dimensions. Writing to a parameter
 in a transaction triggers a regeneration that propagates downstream.

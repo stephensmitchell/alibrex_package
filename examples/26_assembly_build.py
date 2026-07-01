@@ -1,4 +1,4 @@
-"""Example 26 - build an assembly from scratch.
+"""Example 26: build an assembly from scratch.
 
 Creates a new empty assembly, adds three empty-part occurrences at
 different translations, walks the resulting tree, and runs an
@@ -17,7 +17,7 @@ from alibrex import IADAssemblySession, IADOccurrence, connect, run_example
 def walk(occ: IADOccurrence, depth: int = 0) -> None:
     indent = "  " * depth
     t = occ.LocalTransform
-    # IADTransformation exposes position/rotation; we'll just print the name
+    # IADTransformation exposes position/rotation; print the name
     print(f"{indent}- {occ.Name}  (children={occ.Occurrences.Count})")
     for i in range(occ.Occurrences.Count):
         walk(occ.Occurrences.Item(i), depth + 1)

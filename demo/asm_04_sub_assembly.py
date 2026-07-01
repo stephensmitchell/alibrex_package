@@ -1,10 +1,10 @@
-"""Assembly demo 04 - build a sub-assembly, place it inside a parent.
+"""Assembly demo 04: build a sub-assembly, place it inside a parent.
 
 Pipeline:
   1. Build a *sub-assembly* with two muffler parts inside it.
   2. Save it to disk.
   3. Build a *parent* assembly that includes the sub-assembly twice
-     plus one bare part - exercising a 3-level hierarchy.
+     plus one bare part, exercising a 3-level hierarchy.
 
 Pass criteria:
   - Sub-assembly file is on disk.

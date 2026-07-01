@@ -1,6 +1,6 @@
-"""Sketch-2D demo 09 - proper sketch fillet at a corner.
+"""Sketch-2D demo 09: proper sketch fillet at a corner.
 
-Models the real CAD-fillet pattern: two lines trimmed back from a
+Models the CAD-fillet pattern: two lines trimmed back from a
 corner, joined by an arc tangent to each, with the arc's endpoints
 coincident with the trimmed line ends. The radius is set by a radial
 dimension; the corner geometry is otherwise fully defined.
@@ -55,7 +55,7 @@ def main() -> int:
         # void left at (5..6, 0..1).
         horiz = sk.Figures.AddLine(0.0, 0.0, 5.0, 0.0)
         vert  = sk.Figures.AddLine(6.0, 1.0, 6.0, 4.0)
-        # Arc joining the two trim ends - sloppy initial centre/radius.
+        # Arc joining the two trim ends, sloppy initial centre/radius.
         arc   = sk.Figures.AddCircularArcByCenterStartEnd(
             4.9, 1.1,
             5.0, 0.0,

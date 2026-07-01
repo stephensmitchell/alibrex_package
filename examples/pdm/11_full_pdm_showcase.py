@@ -1,4 +1,4 @@
-"""PDM 11 - full showcase (Python port of the C# `Program.cs` example).
+"""PDM 11: full showcase (Python port of the C# `Program.cs` example).
 
 Comprehensive walk-through covering:
   1. Server connection details
@@ -11,8 +11,8 @@ Comprehensive walk-through covering:
   8. Recycle bin
   9. Open Alibre sessions
 
-This script consolidates the 00-10 demos into a single end-to-end
-report. Run it as your "is everything healthy?" verification.
+Consolidates the 00-10 demos into a single end-to-end report. Run it as
+your "is everything healthy?" verification.
 """
 from alibrex import connect
 

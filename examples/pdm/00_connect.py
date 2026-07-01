@@ -1,4 +1,4 @@
-"""PDM 00 - connect and print server info.
+"""PDM 00: connect and print server info.
 
 Bare-bones starting point. Tier 0 of the 0-to-100 PDM curriculum.
 """

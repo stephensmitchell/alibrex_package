@@ -3,9 +3,9 @@
 Original: https://help.alibre.com/articles/#!alibre-help-v28/working-with-configurations
 
 Adds, locks, and activates part configurations. The biggest API shape
-difference: AlibreScript has ``Foo.Activate()`` / ``IsActive``, but in
-AlibreX activation is done by assigning to
-``IADDesignSession.ActiveConfiguration``, and "is active" is checked by
+difference: AlibreScript has ``Foo.Activate()`` / ``IsActive``, while
+AlibreX activates by assigning to
+``IADDesignSession.ActiveConfiguration`` and checks "is active" by
 comparing IDs against the session's current active configuration.
 """
 from __future__ import annotations
@@ -58,10 +58,10 @@ def main() -> None:
     bar = configs.AddConfiguration("Bar", False)
     part.ActiveConfiguration = bar
 
-    # The default configuration's name varies by locale; just find it
-    # (it's the one we did not just add). Then apply the "lock everything"
+    # The default configuration's name varies by locale; find it
+    # (the one we did not add). Then apply the "lock everything"
     # equivalent by OR-ing all known bits. CLR enums don't iterate the
-    # same way Python enums do - use Enum.GetValues.
+    # same way Python enums do; use Enum.GetValues.
     all_bits = 0
     for v in Enum.GetValues(clr.GetClrType(ADConfigurationLockType)):  # type: ignore[attr-defined]
         all_bits |= int(v)
@@ -74,7 +74,7 @@ def main() -> None:
     if default is not None:
         default.Locks = _lock_value(all_bits)
 
-    # Re-fetch the collection - it's a snapshot, additions don't show
+    # Re-fetch the collection: it's a snapshot, additions don't show
     # up in the original handle. Also guard the Item(1) lookup in case
     # AlibreX collapsed configurations on this build.
     configs = part.Configurations

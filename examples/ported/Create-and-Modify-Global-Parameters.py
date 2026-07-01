@@ -2,13 +2,13 @@
 
 Original: https://help.alibre.com/articles/#!alibre-help-v28/create-and-modify-global-parameters
 
-AlibreScript ``GlobalParameters(name)`` - AlibreX
+AlibreScript ``GlobalParameters(name)`` maps to AlibreX
 ``root.CreateEmptyGlobalParameters(name)``; the result is an
 ``IADGlobalParameterSession`` whose ``Configurations`` you walk to add
-parameters in the usual transactional way. Saving uses the standard
+parameters transactionally. Saving uses the standard
 ``IADSession.SaveAs``.
 
-This port creates a global parameters file, adds a ``Width`` distance
+Creates a global parameters file, adds a ``Width`` distance
 parameter, prints it, then changes its value. Pass an output folder.
 """
 from __future__ import annotations
@@ -33,11 +33,11 @@ def main() -> None:
     root = connect()
     gp = cast(IADGlobalParameterSession, root.CreateEmptyGlobalParameters("Test"))
 
-    # Note: IADGlobalParameterSession exposes Configurations only.
+    # IADGlobalParameterSession exposes Configurations only.
     # Parameters on a global-params session live on each configuration.
     cfg = gp.Configurations.Item(0)
-    # In practice you'd access cfg.Parameters; if your build doesn't
-    # expose that, the global-params session is read via the host editor.
+    # Access cfg.Parameters; if your build doesn't expose that,
+    # read the global-params session via the host editor.
     # Demonstrate by adding a parameter on the *active* design instead:
     width = gp.Configurations.Item(0)
 

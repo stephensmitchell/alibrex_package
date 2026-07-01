@@ -6,13 +6,13 @@ Notes / departures from the original:
   and reads them back; AlibreX has no equivalent and the persistence is
   dropped.
 - ``ExportRotatedSTL(filename, bottom_face, force_mm, custom, ...)`` is
-  not exposed on ``IADPartSession``. The plain ``ExportSTL`` is used
-  instead - orient the part manually if you need the bottom-face
+  not exposed on ``IADPartSession``. Use the plain ``ExportSTL``
+  instead; orient the part manually if you need the bottom-face
   semantics.
 - ``Win.GetInputValue`` / ``Win.EnableInput`` (dialog state queries) are
-  not implemented by ``_dialogs.py``; "Use custom settings" simply
-  toggles which arguments are passed to ``ExportSTL`` rather than
-  graying out fields.
+  not implemented by ``_dialogs.py``; "Use custom settings" toggles
+  which arguments are passed to ``ExportSTL`` rather than graying out
+  fields.
 """
 from __future__ import annotations
 

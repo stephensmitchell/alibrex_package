@@ -2,14 +2,13 @@
 
 Functions emit fully-defined cross-sections in centimetres. Origin
 convention: profile sits in the +X / +Y quadrant with its "wall" face
-along X = 0 (so an extrude along Z mounts naturally to a vertical
-wall).
+along X = 0 (so an extrude along Z mounts to a vertical wall).
 
 Sections:
-  - baseboard(...)     - stepped baseboard with a decorative top.
-  - quarter_round(...) - quarter circle filler.
-  - casing(...)        - simple stepped casing (window/door trim).
-  - crown(...)         - basic cove-and-step crown molding profile.
+  - baseboard(...)     : stepped baseboard with a decorative top.
+  - quarter_round(...) : quarter circle filler.
+  - casing(...)        : simple stepped casing (window/door trim).
+  - crown(...)         : basic cove-and-step crown molding profile.
 """
 from __future__ import annotations
 
@@ -54,7 +53,7 @@ def quarter_round(sketch, *, r: float,
 
 def casing(sketch, *, h: float, t: float, recess: float = 0.3,
            cx: float = 0.0, cy: float = 0.0) -> None:
-    """Stepped door / window casing - flat against wall, two steps in front.
+    """Stepped door / window casing: flat against wall, two steps in front.
 
     ``h`` total height, ``t`` thickness at the back, ``recess`` how
     much each step recesses.

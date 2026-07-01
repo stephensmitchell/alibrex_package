@@ -1,4 +1,4 @@
-"""CRUD demo 18 - export the muffler assembly to STEP / IGES / STL.
+"""CRUD demo 18: export the muffler assembly to STEP / IGES / STL.
 
 Opens the muffler, calls each export method, and checks the resulting
 file is on disk and non-trivially sized. Files go to a timestamped
@@ -52,7 +52,7 @@ def main() -> int:
 
     # Assembly-level IGES/AP214 export silently produces 0-byte files in
     # this Alibre build (the parts-level path works, but the assembly
-    # walker doesn't write them). STL + AP203 + SAT + OBJ all do - assert
+    # walker doesn't write them). STL + AP203 + SAT + OBJ all do: assert
     # the formats we know work and report the others informationally.
     return report([
         ("STL >= 10 KB",           sizes["STL"]  >= 10_000),

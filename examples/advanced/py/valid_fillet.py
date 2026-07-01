@@ -2,8 +2,8 @@
 
 Creates a 40 x 20 x 10 mm block, then applies a 2 mm constant-radius
 fillet to the four top edges (the AlibreScript original picked a single
-hardcoded ``Edge<6>`` - alibrex doesn't expose names, so we pick edges
-by geometry instead).
+hardcoded ``Edge<6>``; alibrex doesn't expose names, so this picks
+edges by geometry instead).
 """
 from __future__ import annotations
 

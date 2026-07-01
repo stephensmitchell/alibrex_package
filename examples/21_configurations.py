@@ -1,8 +1,8 @@
-"""Example 21 - list and add part configurations (design variants).
+"""Example 21: list and add part configurations (design variants).
 
 Exercises `IADPartSession.Configurations` and `AddConfiguration`. Each
-configuration captures a parameter snapshot; the example reads the
-existing set and appends a new one named with a timestamp.
+configuration captures a parameter snapshot. Read the existing set and
+append a new one named with a timestamp.
 """
 from __future__ import annotations
 
