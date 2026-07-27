@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/alibrex.svg)](https://pypi.org/project/alibrex/)
 [![Python versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://pypi.org/project/alibrex/)
-[![Downloads](https://static.pepy.tech/badge/alibrex)](https://pepy.tech/project/alibrex)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/alibrex?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/alibrex)
 
 `alibrex` is a Python wrapper for the Alibre Design V29+ **AlibreX** automation API. The native AlibreX is a COM interface exposed to .NET. `alibrex` turns it into a typed, idiomatic Python module.
 
