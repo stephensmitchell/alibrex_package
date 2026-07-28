@@ -1,6 +1,6 @@
 from alibrex import CurrentPart
 
-part = CurrentPart()                
+part = CurrentPart()
 body = part.Bodies.Item(0)
 
 for i in range(body.Edges.Count):

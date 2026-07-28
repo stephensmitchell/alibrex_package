@@ -17,7 +17,6 @@
   - Where things live
     - `source/` holds the examples, notebooks, demos, and helper scripts.
     - `documentation/` holds reference notes.
-    - `reviews/` holds dated code reviews.
   - Good to know
     - Your code changes the live model straight away, so save your work before experimenting.
   - Use it under the MIT License.
