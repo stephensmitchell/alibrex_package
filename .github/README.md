@@ -1,0 +1,23 @@
+# alibrex
+
+- `alibrex` is a Python package that lets you drive Alibre Design from ordinary Python, wrapping the AlibreX automation interface so it behaves like a normal module.
+  - What it does
+    - Exposes the whole AlibreX API from one namespace, including `CurrentPart()`, `CurrentAssembly()`, and `connect()`.
+    - Ships type information for each interface and enum, so autocomplete and hover documentation work in your editor.
+    - Works with editors and type checkers that understand standard Python type stubs.
+    - Comes with notebooks, examples, and demo scripts to learn from.
+  - What you need
+    - Alibre Design version 29 or later, installed and running.
+    - Python 3.9 or newer on Windows.
+  - Getting started
+    - Install it with `pip install alibrex`.
+    - Open a part in Alibre Design.
+    - Run `from alibrex import CurrentPart` and then `CurrentPart()` to get hold of that part.
+    - Browse `source/examples/` and `source/notebooks/` for worked examples.
+  - Where things live
+    - `source/` holds the examples, notebooks, demos, and helper scripts.
+    - `documentation/` holds reference notes.
+    - `reviews/` holds dated code reviews.
+  - Good to know
+    - Your code changes the live model straight away, so save your work before experimenting.
+  - Use it under the MIT License.
