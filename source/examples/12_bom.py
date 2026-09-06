@@ -1,0 +1,35 @@
+"""Example 12: read a Bill of Materials from a BOM table session."""
+from __future__ import annotations
+
+import sys
+
+from alibrex import ADObjectSubType, IADBOMTableSession, connect, narrow, run_example
+def main() -> None:
+    root = connect()
+
+    bom_session: IADBOMTableSession | None = None
+    for i in range(root.Sessions.Count):
+        s = root.Sessions.Item(i)
+        if int(s.SessionType) == int(ADObjectSubType.AD_BOM_TABLE):
+            bom_session = narrow(s, IADBOMTableSession)
+            break
+    if bom_session is None:
+        raise RuntimeError("No BOM table session open in Alibre.")
+
+    n_cols = bom_session.ColumnCount
+    n_rows = bom_session.RowCount
+    print(f"BOM '{bom_session.Name}': {n_rows} rows x {n_cols} columns\n")
+
+    cols = bom_session.Columns(True)
+    rows = bom_session.Rows(True)
+
+    headers = [cols.Item(c).Name for c in range(cols.Count)]
+    print(" | ".join(headers))
+    print("-" * 80)
+    for r in range(rows.Count):
+        row = rows.Item(r)
+        cells = [str(row.Value(c)) for c in range(cols.Count)]
+        print(" | ".join(cells))
+
+if __name__ == "__main__":
+    sys.exit(run_example(main))
